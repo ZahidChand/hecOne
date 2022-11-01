@@ -5,8 +5,7 @@ import ShowDetailsOfTerminal from "./show";
 
 export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
 
-    // const redirectToPrev = () => {
-    // }
+    const { goBack } = useNavigation()
 
     return (
         <>
@@ -22,9 +21,9 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     <Col xs={24} lg={24}>
                         <List
                             title={("Terminal Network Configuration")}
-                            pageHeaderProps={{
-                                extra: <></>,
-                            }}
+                        // pageHeaderProps={{
+                        //     extra: <></>,
+                        // }}
                         >
                             <Row gutter={10}>
                                 <Col xs={24} lg={12}>
@@ -37,7 +36,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'User1'} />
+                                        <Input defaultValue={'User1'} style={{width:"50%"}} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Port")}
@@ -48,7 +47,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'1234'} />
+                                        <Input defaultValue={'1234'} style={{width:"50%"}} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Host")}
@@ -59,7 +58,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'sr1.host1.com'} />
+                                        <Input defaultValue={'sr1.host1.com'} style={{width:"50%"}} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Protocol")}
@@ -70,7 +69,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'serverProtocol1'}/>
+                                        <Input defaultValue={'serverProtocol1'} style={{width:"50%"}} />
                                     </Form.Item>
 
                                     <Form.Item
@@ -82,18 +81,18 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'abdcefghi , jklmnop'} />
+                                        <Input defaultValue={'abdcefghi , jklmnop'} style={{width:"50%"}} />
                                     </Form.Item>
 
                                     <Form.Item>
                                         <Button
-                                            // onClick={() => { redirectToPrev() }}
-                                            style={{ cursor: "pointer", marginLeft: "10" }}>
+                                            onClick={() => { goBack() }}
+                                            style={{ cursor: "pointer", width: "50%" }}>
                                             Cancel
                                         </Button>
-
+                                        <br /><br />
                                         <SaveButton
-                                            style={{ marginRight: 10 }}
+                                            style={{ width: "50%" }}
                                         />
 
                                     </Form.Item>
