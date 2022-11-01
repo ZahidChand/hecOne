@@ -16,6 +16,7 @@ import { Title } from "./components/Title";
 import TerminalPage from "./components/TerminalPage/TerminalPage";
 import { ShowDetailsOfTerminal } from "./pages/Terminal/show";
 import { FilterView } from "./components/Filter/Filter";
+import EditNetworkConfig from "./pages/Terminal/editNetworkConfig";
 
 const API_URL = "http://192.168.0.129:8080/v1/graphql";
 
@@ -44,7 +45,8 @@ const App: React.FC = () => {
                 {
                     name: "HecOne_Terminal",
                     list: TerminalPage,
-                    show: ShowDetailsOfTerminal
+                    show: ShowDetailsOfTerminal,
+                    edit: EditNetworkConfig
                 },
                 {
                     name: "HecOne_Terminal",
