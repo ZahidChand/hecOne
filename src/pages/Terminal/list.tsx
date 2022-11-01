@@ -2,6 +2,8 @@ import {
     IResourceComponentsProps,
     getDefaultFilter,
     useMany,
+    CrudFilters,
+    useTranslate,
 } from "@pankod/refine-core";
 
 import {
@@ -24,14 +26,20 @@ import {
     Input,
     Row,
     Col,
+    FormProps,
+    DatePicker,
+    Icons,
+    Card,
 } from "@pankod/refine-antd";
 
 import { ITerminal } from "../../interfaces";
-import { List, Text } from "@chakra-ui/react";
+import { Box, ButtonGroup, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, HStack, List, Spacer, Text, useDisclosure } from "@chakra-ui/react";
 import { SearchOutlined } from "@ant-design/icons";
+import { useRef } from "react";
+import { FilterView } from "../../components/Filter/Filter";
 
 export const GridListView: React.FC<IResourceComponentsProps> = () => {
-    const { tableProps, filters, sorter } = useTable<ITerminal>({
+    const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
         initialSorter: [
             {
                 field: "name",
@@ -48,51 +56,15 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
             ],
         },
     });
-
+    const t = useTranslate();
     return (
-
         <>
             <Form>
-                <Row
-                    // {...listProps}
-                    gutter={[16, 16]}
-                    style={{ background: "#fff", padding: "16px 24px" }}
-                >
-
-                    <Col xs={24} sm={18}></Col>
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            flexWrap: "wrap",
-                            gap: "8px",
-                            marginBottom: "16px",
-                        }}
-                    >
-                        <Text style={{ fontSize: "24px" }}>
-                            {("Terminal")}
-                        </Text>
-                        <Form.Item name="name" noStyle>
-                            <Input
-                                style={{
-                                    width: "400px",
-                                    marginTop: "-15px",
-                                    marginLeft: "170px"
-                                }}
-                                placeholder={(" Search Terminal")}
-                                suffix={<SearchOutlined />}
-                            />
-                        </Form.Item>
-
-
-                        {/* <CreateButton onClick={() => createShow()}>
-                                {t("Add Terminal")}
-                            </CreateButton> */}
-                    </div>
-
-                    <div>
-                        <List>
+                    <Row  gutter={[16, 16]}
+                     style={{ background: "#fff", padding: "24px 24px" }}>
+                        <FilterView />
+                 <Col xl={18} xs={24}>
+                 <List>
                             <Table {...tableProps} rowKey="id">
                                 <Table.Column
                                     dataIndex="name"
@@ -157,9 +129,13 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                                 />
                             </Table>
                         </List>
-                    </div>
-                </Row>
+                 </Col>
+                       
+                    </Row>
             </Form>
+
         </>
+
+        
     );
 };

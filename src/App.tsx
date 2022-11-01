@@ -15,8 +15,7 @@ import "@pankod/refine-antd/dist/styles.min.css";
 import { Title } from "./components/Title";
 import TerminalPage from "./components/TerminalPage/TerminalPage";
 import { ShowDetailsOfTerminal } from "./pages/Terminal/show";
-import { Editable } from "@chakra-ui/react";
-import { EditNetworkConfig } from "./pages/Terminal/editNetworkConfig";
+import { FilterView } from "./components/Filter/Filter";
 
 const API_URL = "http://192.168.0.129:8080/v1/graphql";
 
@@ -30,7 +29,7 @@ const gqlDataProvider = dataProvider(client);
 
 const App: React.FC = () => {
     return (
-        <Refine 
+        <Refine
             routerProvider={routerProvider}
             dataProvider={gqlDataProvider}
             Title={Title}
@@ -45,8 +44,11 @@ const App: React.FC = () => {
                 {
                     name: "HecOne_Terminal",
                     list: TerminalPage,
-                    show: ShowDetailsOfTerminal,
-                    edit: EditNetworkConfig
+                    show: ShowDetailsOfTerminal
+                },
+                {
+                    name: "HecOne_Terminal",
+                    list: FilterView
                 }
             ]}
             notificationProvider={notificationProvider}
