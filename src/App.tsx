@@ -30,7 +30,7 @@ const gqlDataProvider = dataProvider(client);
 
 const App: React.FC = () => {
     return (
-        <Refine
+        <Refine 
             routerProvider={routerProvider}
             dataProvider={gqlDataProvider}
             Title={Title}
