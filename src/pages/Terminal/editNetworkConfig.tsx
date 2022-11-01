@@ -48,7 +48,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input />
+                                        <Input defaultValue={'1234'} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Host")}
@@ -59,7 +59,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'User1'} />
+                                        <Input defaultValue={'sr1.host1.com'} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Protocol")}
@@ -70,7 +70,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input />
+                                        <Input defaultValue={'serverProtocol1'}/>
                                     </Form.Item>
 
                                     <Form.Item
@@ -82,7 +82,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input />
+                                        <Input defaultValue={'abdcefghi , jklmnop'} />
                                     </Form.Item>
 
                                     <Form.Item>
