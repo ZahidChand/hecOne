@@ -64,14 +64,16 @@
 //****************************************** */
 
 import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr, useBreakpoint } from '@chakra-ui/react';
-import { Avatar, Button, Card, Col, CreateButton, EditButton, Grid, Icons, List, Row, Space, Tabs, Typography, useTable } from '@pankod/refine-antd'
+import { Avatar, Button, Card, Col, CreateButton, Divider, EditButton, Grid, Icons, List, Row, Space, Tabs, Typography, useTable } from '@pankod/refine-antd'
 import { HttpError, IResourceComponentsProps, useNavigation, useShow } from '@pankod/refine-core'
 import { create } from 'domain';
-import React from 'react'
+import React, { useState } from 'react'
+import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
 // const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
     const { create } = useNavigation();
+    // const [ bcrumbName, setBCrumbName] = useState();
     // const { queryResult: terminalQueryResult } = useShow<ITerminal>();
     // const terminal = terminalQueryResult.data?.data;
 
@@ -104,9 +106,12 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
 
     return (
         <>
+        <div>
+        <Breadcrumb />
+        </div>
+                    <Card bordered={false} style={{ height: "100%" }}>
             <Row>
                 <Col xl={5} lg={24} xs={24}>
-                    <Card bordered={false} style={{ height: "100%" }}>
                         <Space
                             direction="vertical"
                             style={{ width: "100%", height: "100%" }}
@@ -140,29 +145,16 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                 </Typography.Text>
                             </Space>
                         </Space>
-                    </Card>
+                    {/* </Card> */}
                 </Col>
-                <div style={{
-                    borderLeft: "2px solid black",
-                }}></div>
+                <Divider type='vertical' style={{ height: 260, borderColor: "black"}}/>
+                                    {/* <div style={{
+                                        borderLeft: "2px solid black",
+                                    }}></div> */}
                 <Col xl={18} xs={24}>
-
-                    <List
-                        title={("Terminal Configurations")}
-                        pageHeaderProps={{
-                            extra: <></>,
-                        }}
-                    >
+                    {/* <Card > */}
                         <Tabs defaultActiveKey="1">
                             <Tabs.TabPane tab="Network Configurations" key="1">
-                                <div>
-                                    <CreateButton style={{ marginBottom: "3px", marginLeft: "86%" }} onClick={() => {
-                                        create("HecOne_NetworkConfig")
-                                    }}>
-                                        Create
-                                    </CreateButton>
-                                </div>
-                                <hr color='green' />
                                 <TableContainer>
                                     <Table size='sm' width={"100%"}>
                                         <Thead style={{ paddingBottom: "2px" }}>
@@ -255,10 +247,10 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                 Content of Tab Pane 3
                             </Tabs.TabPane> */}
                         </Tabs>
-                    </List>
 
                 </Col>
             </Row >
+                        </Card>
         </>
     )
 }

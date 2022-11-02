@@ -39,14 +39,15 @@ function TerminalPage() {
                         }}
                     >
                         <Text style={{ fontSize: "24px" }}>
-                            {("Terminal")}
+                            {("Terminals")}
                         </Text>
                         <Form.Item name="name" noStyle>
                             <Input
                                 style={{
                                     width: "400px",
                                     marginTop: "-15px",
-                                    marginLeft: "170px"
+                                    marginLeft: "400px"
+
                                 }}
                                 placeholder={(" Search Terminal")}
                                 suffix={<SearchOutlined />}
