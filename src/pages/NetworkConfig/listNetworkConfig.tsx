@@ -1,9 +1,10 @@
+import { IResourceComponentsProps } from '@pankod/refine-core'
 import React from 'react'
 
-function listNetworkConfig() {
+export const listNetworkConfig: React.FC<IResourceComponentsProps> = () => {
   return (
     <>
-    <h1>List Network Config </h1>
+      <h1>This Is List Network Config </h1>
     </>
   )
 }

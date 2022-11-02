@@ -69,6 +69,7 @@ import { HttpError, IResourceComponentsProps, useNavigation, useShow } from '@pa
 import { create } from 'domain';
 import React, { useState } from 'react'
 import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
+import EditNetworkConfig from '../NetworkConfig/editNetworkConfig';
 // const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
@@ -106,12 +107,13 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
 
     return (
         <>
-        <div>
-        <Breadcrumb />
-        </div>
-                    <Card bordered={false} style={{ height: "100%" }}>
-            <Row>
-                <Col xl={5} lg={24} xs={24}>
+
+            <Card bordered={false} style={{ height: "100%" }}>
+                <div>
+                    <Breadcrumb />
+                </div>
+                <Row>
+                    <Col xl={5} lg={24} xs={24}>
                         <Space
                             direction="vertical"
                             style={{ width: "100%", height: "100%" }}
@@ -145,18 +147,18 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                 </Typography.Text>
                             </Space>
                         </Space>
-                    {/* </Card> */}
-                </Col>
-                <Divider type='vertical' style={{ height: 260, borderColor: "black"}}/>
-                                    {/* <div style={{
+                        {/* </Card> */}
+                    </Col>
+                    <Divider type='vertical' style={{ height: 260, borderColor: "black" }} />
+                    {/* <div style={{
                                         borderLeft: "2px solid black",
                                     }}></div> */}
-                <Col xl={18} xs={24}>
-                    {/* <Card > */}
+                    <Col xl={18} xs={24}>
+                        {/* <Card > */}
                         <Tabs defaultActiveKey="1">
                             <Tabs.TabPane tab="Network Configurations" key="1">
                                 <TableContainer>
-                                    <Table size='sm' width={"100%"}>
+                                    {/* <Table size='sm' width={"100%"}>
                                         <Thead style={{ paddingBottom: "2px" }}>
                                             <Tr>
                                                 <Th>Name</Th>
@@ -205,7 +207,8 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                                 /></Td>
                                             </Tr>
                                         </Tbody>
-                                    </Table>
+                                    </Table> */}
+                                    <EditNetworkConfig />
                                 </TableContainer>
                             </Tabs.TabPane>
                             <Tabs.TabPane tab="Printer Configurations" key="2">
@@ -248,9 +251,9 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                             </Tabs.TabPane> */}
                         </Tabs>
 
-                </Col>
-            </Row >
-                        </Card>
+                    </Col>
+                </Row >
+            </Card>
         </>
     )
 }

@@ -14,7 +14,7 @@ import { ITerminal } from "../../interfaces";
 import "react-mde/lib/styles/css/react-mde-all.css";
 
 
-export const PostEdit: React.FC<IResourceComponentsProps> = () => {
+export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
     const { formProps, saveButtonProps, queryResult } = useForm<
         ITerminal,
         HttpError
