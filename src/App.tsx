@@ -16,11 +16,12 @@ import { Title } from "./components/Title";
 import TerminalPage from "./components/TerminalPage/TerminalPage";
 import { ShowDetailsOfTerminal } from "./pages/Terminal/show";
 import { FilterView } from "./components/Filter/Filter";
-import EditNetworkConfig from "./pages/Terminal/editNetworkConfig";
+import EditNetworkConfig from "./pages/NetworkConfig/editNetworkConfig";
 import listNetworkConfig from "./pages/NetworkConfig/listNetworkConfig";
 import CreateNetworkCOnfig from "./pages/NetworkConfig/createTerminal";
+import { TerminalEdit } from "./pages/Terminal";
 
-const API_URL = "http://192.168.0.129:8080/v1/graphql";
+const API_URL = "http://localhost:8080/v1/graphql";
 
 const client = new GraphQLClient(API_URL, {
     headers: {
@@ -54,7 +55,7 @@ const App: React.FC = () => {
                     // options: { route: "show" },
                     list: TerminalPage,
                     show: ShowDetailsOfTerminal,
-                    edit: EditNetworkConfig
+                    edit: TerminalEdit
                 },
                 {
                     name: "HecOne_Terminal",
@@ -68,7 +69,9 @@ const App: React.FC = () => {
                     parentName: "HecOne_Terminal",
                     options: { route: "HecOne_NetworkConfig" },
                     create: CreateNetworkCOnfig,
-                  
+                    edit: EditNetworkConfig,
+                    // list:listNetworkConfig
+
                 }
 
 
