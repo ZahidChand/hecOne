@@ -34,8 +34,8 @@ function TerminalPage() {
                             alignItems: "center",
                             justifyContent: "space-between",
                             flexWrap: "wrap",
-                            gap: "8px",
-                            marginBottom: "16px",
+                            // gap: "8px",
+                            // marginBottom: "16px",
                         }}
                     >
                         <Text style={{ fontSize: "24px" }}>
