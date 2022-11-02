@@ -52,7 +52,7 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                     gutter={[16, 16]}
                     style={{ background: "#fff", padding: "24px 24px" }}
                 >
-                    <FilterView />
+                    {/* <FilterView /> */}
                     <Col xs={24} sm={18}>
                         <div
                             style={{
