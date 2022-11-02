@@ -1,12 +1,17 @@
-import { Input } from "@chakra-ui/react"
-import { Button, Col, Form, List, Row, SaveButton, Select } from "@pankod/refine-antd";
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core";
+import { Button, Col, Form, Input, List, Row, SaveButton } from '@pankod/refine-antd'
+import { IResourceComponentsProps, useNavigation } from '@pankod/refine-core'
+import React from 'react'
 
-export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
+export const CreateNetworkCOnfig: React.FC<IResourceComponentsProps> = () => {
+
 
     const { goBack } = useNavigation()
 
+
+
+
     return (
+
         <>
             <Form
                 // {...formProps}
@@ -19,10 +24,10 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                 <Row>
                     <Col xs={24} lg={24}>
                         <List
-                            title={("Edit Network Configuration")}
-                        // pageHeaderProps={{
-                        //     extra: <></>,
-                        // }}
+                            title={("New Network Configurations")}
+                            pageHeaderProps={{
+                                extra: <></>,
+                            }}
                         >
                             <Row gutter={10}>
                                 <Col xs={24} lg={12}>
@@ -35,7 +40,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'User1'} style={{width:"50%"}} />
+                                        <Input style={{ width: "50%" }} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Port")}
@@ -46,7 +51,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'1234'} style={{width:"50%"}} />
+                                        <Input style={{ width: "50%" }} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Host")}
@@ -57,7 +62,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'sr1.host1.com'} style={{width:"50%"}} />
+                                        <Input style={{ width: "50%" }} />
                                     </Form.Item>
                                     <Form.Item
                                         label={("Server Protocol")}
@@ -68,7 +73,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'serverProtocol1'} style={{width:"50%"}} />
+                                        <Input style={{ width: "50%" }} />
                                     </Form.Item>
 
                                     <Form.Item
@@ -80,7 +85,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'abdcefghi , jklmnop'} style={{width:"50%"}} />
+                                        <Input style={{ width: "50%" }} />
                                     </Form.Item>
 
                                     <Form.Item>
@@ -105,4 +110,4 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
     )
 }
 
-export default EditNetworkConfig
+export default CreateNetworkCOnfig

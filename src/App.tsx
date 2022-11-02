@@ -1,4 +1,4 @@
-import { Refine } from "@pankod/refine-core";
+import { Refine, useMenu } from "@pankod/refine-core";
 import {
     notificationProvider,
     Layout,
@@ -17,6 +17,8 @@ import TerminalPage from "./components/TerminalPage/TerminalPage";
 import { ShowDetailsOfTerminal } from "./pages/Terminal/show";
 import { FilterView } from "./components/Filter/Filter";
 import EditNetworkConfig from "./pages/Terminal/editNetworkConfig";
+import listNetworkConfig from "./pages/NetworkConfig/listNetworkConfig";
+import CreateNetworkCOnfig from "./pages/NetworkConfig/createTerminal";
 
 const API_URL = "http://192.168.0.129:8080/v1/graphql";
 
@@ -29,6 +31,7 @@ const client = new GraphQLClient(API_URL, {
 const gqlDataProvider = dataProvider(client);
 
 const App: React.FC = () => {
+    const { menuItems, selectedKey, defaultOpenKeys } = useMenu();
     return (
         <Refine
             routerProvider={routerProvider}
@@ -42,8 +45,13 @@ const App: React.FC = () => {
                 //     edit: PostEdit,
                 //     show: PostShow,
                 // },
+                // {
+                //     name: "HecOne_Terminal"
+                // },
                 {
                     name: "HecOne_Terminal",
+                    // parentName: "HecOne_Terminal",
+                    // options: { route: "show" },
                     list: TerminalPage,
                     show: ShowDetailsOfTerminal,
                     edit: EditNetworkConfig
@@ -51,7 +59,19 @@ const App: React.FC = () => {
                 {
                     name: "HecOne_Terminal",
                     list: FilterView
+                },
+                {
+                    name: "HecOne_PrinterConfig",
+                },
+                {
+                    name: "HecOne_NetworkConfig",
+                    parentName: "HecOne_Terminal",
+                    options: { route: "HecOne_NetworkConfig" },
+                    create: CreateNetworkCOnfig,
+                  
                 }
+
+
             ]}
             notificationProvider={notificationProvider}
             Layout={Layout}

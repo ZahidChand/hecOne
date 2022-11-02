@@ -64,15 +64,14 @@
 //****************************************** */
 
 import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr, useBreakpoint } from '@chakra-ui/react';
-import { Avatar, Button, Card, Col, EditButton, Grid, Icons, List, Row, Space, Tabs, Typography, useTable } from '@pankod/refine-antd'
-import { HttpError, IResourceComponentsProps, useShow } from '@pankod/refine-core'
+import { Avatar, Button, Card, Col, CreateButton, EditButton, Grid, Icons, List, Row, Space, Tabs, Typography, useTable } from '@pankod/refine-antd'
+import { HttpError, IResourceComponentsProps, useNavigation, useShow } from '@pankod/refine-core'
+import { create } from 'domain';
 import React from 'react'
-import { INetworkConfig, ITerminal } from '../../interfaces';
-import editNetworkConfig from '../Terminal/editNetworkConfig';
 // const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
-
+    const { create } = useNavigation();
     // const { queryResult: terminalQueryResult } = useShow<ITerminal>();
     // const terminal = terminalQueryResult.data?.data;
 
@@ -156,6 +155,14 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                     >
                         <Tabs defaultActiveKey="1">
                             <Tabs.TabPane tab="Network Configurations" key="1">
+                                <div>
+                                    <CreateButton style={{ marginBottom: "3px", marginLeft: "86%" }} onClick={() => {
+                                        create("HecOne_NetworkConfig")
+                                    }}>
+                                        Create
+                                    </CreateButton>
+                                </div>
+                                <hr color='green' />
                                 <TableContainer>
                                     <Table size='sm' width={"100%"}>
                                         <Thead style={{ paddingBottom: "2px" }}>
@@ -251,7 +258,7 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                     </List>
 
                 </Col>
-            </Row>
+            </Row >
         </>
     )
 }
