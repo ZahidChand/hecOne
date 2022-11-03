@@ -171,9 +171,14 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                     </Table>
                                 </TableContainer>
                             </Tabs.TabPane>
-                            <Tabs.TabPane tab="Demo Configuration 123" key="3">
+                            <Tabs.TabPane tab="Restrictions" key="3">
                                 <h1>
-                                    Content of Demo Configuration 123
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Odio, cumque nobis beatae odit optio vero, amet maiores
+                                    dolore necessitatibus dignissimos quia, facere adipisci pariatur
+                                    blanditiis? Optio ea velit, quasi sequi hic sed, odio saepe
+                                    culpa nesciunt explicabo dolore commodi perferendis id nemo.
+                                    Recusandae modi molestiae cumque vero labore similique explicabo!
                                 </h1>
                             </Tabs.TabPane>
                         </Tabs>
