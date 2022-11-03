@@ -20,6 +20,7 @@ import EditNetworkConfig from "./pages/NetworkConfig/editNetworkConfig";
 import listNetworkConfig from "./pages/NetworkConfig/listNetworkConfig";
 import CreateNetworkCOnfig from "./pages/NetworkConfig/createTerminal";
 import { TerminalEdit } from "./pages/Terminal";
+import EditPrinterConfig from "./pages/PrinterConfig/editPrinterConfig";
 
 const API_URL = "http://localhost:8080/v1/graphql";
 
@@ -63,6 +64,7 @@ const App: React.FC = () => {
                 },
                 {
                     name: "HecOne_PrinterConfig",
+                    edit: EditPrinterConfig
                 },
                 {
                     name: "HecOne_NetworkConfig",

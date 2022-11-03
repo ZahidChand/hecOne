@@ -4,7 +4,18 @@ export interface ITerminal {
     longitude: longitude,
     latitude: latitude,
     created_at: created_at,
+    deviceId: number,
+    station: string,
+    created_by: string,
+    type: string,
+    status: string,
     terminalAddress: string,
+    terminalStreet: string,
+    terminalCity: string,
+    terminalState: string,
+    terminalZipcode: number ,
+
+
 }
 
 export interface INetworkConfig {

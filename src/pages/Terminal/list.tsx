@@ -39,8 +39,9 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { FilterView } from "../../components/Filter/Filter";
 import show from "./show";
-import { color } from "@pankod/refine-mui";
+import { color, Link } from "@pankod/refine-mui";
 import "./terminal.css"
+import { text } from "stream/consumers";
 export const GridListView: React.FC<IResourceComponentsProps> = () => {
     const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
         initialSorter: [
@@ -56,6 +57,16 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                 "longitude",
                 "latitude",
                 "created_at",
+                "device_id",
+                "station",
+                "created_by",
+                "type",
+                "status",
+                "terminalAddress",
+                "terminal_street",
+                "terminal_city",
+                "terminal_state",
+                "terminal_zipcode"
             ],
         },
     });
@@ -67,19 +78,19 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
             <Form>
                 <Row
                     // {...listProps}
-                    gutter={[16, 16]}
+                    // gutter={[16, 16]}
                     style={{ background: "#fff", padding: "24px 24px" }}
                 >
                     <div>
                         <List>
                             <Table {...tableProps} rowKey="id"
-                                onRow={(record) => {
-                                    return {
-                                        onClick: () => {
-                                            show("HecOne_Terminal", record?.id)
-                                        },
-                                    };
-                                }}
+                            // onRow={(record) => {
+                            //     return {
+                            //         onClick: () => {
+                            //             show("HecOne_Terminal", record?.id)
+                            //         },
+                            //     };
+                            // }}
                             >
 
                                 <Table.Column
@@ -100,12 +111,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                                     title="Latitude"
                                     sorter={{ multiple: 1 }}
                                 />
-                                <Table.Column
-                                    dataIndex="id"
-                                    title="Terminal Number"
-                                    sorter={{ multiple: 2 }}
-                                    defaultSortOrder={getDefaultSortOrder("id", sorter)}
-                                />
+
                                 <Table.Column
                                     dataIndex="created_at"
                                     title="Created At"
@@ -113,6 +119,41 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                                     defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
                                     sorter
                                 />
+                                <Table.Column
+                                    dataIndex="device_id"
+                                    title="Device Id"
+                                    defaultSortOrder={getDefaultSortOrder("device_id", sorter)}
+                                    sorter
+                                />
+
+                                <Table.Column
+                                    dataIndex="terminalAddress"
+                                    title="Terminal Address Line"
+                                    sorter={{ multiple: 2 }}
+                                    defaultSortOrder={getDefaultSortOrder("terminalAddress", sorter)}
+                                />
+
+                                <Table.Column
+                                    dataIndex="terminal_street"
+                                    title="Street"
+                                    sorter={{ multiple: 2 }}
+                                    defaultSortOrder={getDefaultSortOrder("terminal_street", sorter)}
+                                />
+
+                                <Table.Column
+                                    dataIndex="terminal_city"
+                                    title="City"
+                                    sorter={{ multiple: 2 }}
+                                    defaultSortOrder={getDefaultSortOrder("terminal_city", sorter)}
+                                />
+
+                                <Table.Column
+                                    dataIndex="terminal_state"
+                                    title="State"
+                                    sorter={{ multiple: 2 }}
+                                    defaultSortOrder={getDefaultSortOrder("terminal_state", sorter)}
+                                />
+
                                 <Table.Column<ITerminal>
                                     title="Actions"
                                     dataIndex="actions"
@@ -139,6 +180,11 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                                                         "longitude",
                                                         "latitude",
                                                         "created_at",
+                                                        "device_id",
+                                                        "terminalAddress",
+                                                        "terminal_street",
+                                                        "terminal_city",
+                                                        "terminal_state"
                                                     ],
                                                 }}
                                             />

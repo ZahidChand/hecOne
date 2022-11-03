@@ -70,6 +70,7 @@ import { create } from 'domain';
 import React, { useState } from 'react'
 import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
 import EditNetworkConfig from '../NetworkConfig/editNetworkConfig';
+import EditPrinterConfig from '../PrinterConfig/editPrinterConfig';
 // const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
@@ -157,98 +158,24 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                         {/* <Card > */}
                         <Tabs defaultActiveKey="1">
                             <Tabs.TabPane tab="Network Configurations" key="1">
+
                                 <TableContainer>
-                                    {/* <Table size='sm' width={"100%"}>
-                                        <Thead style={{ paddingBottom: "2px" }}>
-                                            <Tr>
-                                                <Th>Name</Th>
-                                                <Th>Server Port</Th>
-                                                <Th>Server Host</Th>
-                                                <Th>Server Protocol</Th>
-                                                <Th>Keys</Th>
-                                                <Th>Actions</Th>
-                                            </Tr>
-                                        </Thead>
-                                        <Tbody textAlign={"center"}>
-                                            <Tr height={"40px"} >
-                                                <Td>User1</Td>
-                                                <Td>1234</Td>
-                                                <Td>sr1.host1.com</Td>
-                                                <Td>serverProtocol1</Td>
-                                                <Td>[ "Hello", "There123", "Demo", "Test" ]</Td>
-                                                <Td><EditButton
-                                                    hideText
-                                                    size="small"
-                                                // recordItemId={record.id}
-                                                /></Td>
-                                            </Tr>
-                                            <Tr height={"40px"}>
-                                                <Td>User2</Td>
-                                                <Td>5678</Td>
-                                                <Td>sr2.host2.com</Td>
-                                                <Td>serverProtocol2</Td>
-                                                <Td>[ "wxyz", "lmno", "pqrst" ]</Td>
-                                                <Td><EditButton
-                                                    hideText
-                                                    size="small"
-                                                // recordItemId={record.id}
-                                                /></Td>
-                                            </Tr>
-                                            <Tr height={"40px"}>
-                                                <Td>User007</Td>
-                                                <Td>231</Td>
-                                                <Td>sh123</Td>
-                                                <Td>servPortal987</Td>
-                                                <Td>[ "abdcefghi", "jklmnop" ]</Td>
-                                                <Td><EditButton
-                                                    hideText
-                                                    size="small"
-                                                // recordItemId={record.id}
-                                                /></Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table> */}
                                     <EditNetworkConfig />
+
                                 </TableContainer>
                             </Tabs.TabPane>
                             <Tabs.TabPane tab="Printer Configurations" key="2">
                                 <TableContainer>
                                     <Table size='sm' width={"100%"}>
-                                        <Thead style={{ paddingBottom: "2px" }}>
-                                            <Tr>
-                                                <Th>Printer IP</Th>
-                                                <Th>Paper Size</Th>
-                                                <Th>Actions</Th>
-
-                                            </Tr>
-                                        </Thead>
-                                        <Tbody textAlign={"center"}>
-                                            <Tr height={"40px"} >
-                                                <Td>192.168.0.1</Td>
-                                                <Td>A4</Td>
-                                                <Td><EditButton
-                                                    hideText
-                                                    size="small"
-                                                // recordItemId={record.id}
-                                                /></Td>
-                                            </Tr>
-
-                                            <Tr height={"40px"}>
-                                                <Td>192.168.0.4</Td>
-                                                <Td>8.5 × 14 inches</Td>
-                                                <Td><EditButton
-                                                    hideText
-                                                    size="small"
-                                                // recordItemId={record.id}
-                                                /></Td>
-                                            </Tr>
-                                        </Tbody>
+                                        <EditPrinterConfig />
                                     </Table>
                                 </TableContainer>
                             </Tabs.TabPane>
-                            {/* <Tabs.TabPane tab="Tab 3" key="3">
-                                Content of Tab Pane 3
-                            </Tabs.TabPane> */}
+                            <Tabs.TabPane tab="Demo Configuration 123" key="3">
+                                <h1>
+                                    Content of Demo Configuration 123
+                                </h1>
+                            </Tabs.TabPane>
                         </Tabs>
 
                     </Col>
