@@ -15,10 +15,10 @@ import {
     EditButton,
     Space,
     Card,
+    
 } from "@pankod/refine-antd";
 
 import { ITerminal } from "../../interfaces";
-import { TerminalStatus } from "../../components/terminalStatus";
 
 export const DemoList: React.FC = () => {
     const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
@@ -50,9 +50,9 @@ export const DemoList: React.FC = () => {
     });
     // const { tableProps } = useTable<ITerminal>();
 
-    // const { selectProps: categorySelectProps } = useSelect<ITerminal>({
-    //     resource: "HecOne_Terminal",
-    // });
+    const { selectProps: SelectProps } = useSelect<ITerminal>({
+        resource: "HecOne_Terminal",
+    });
 
     return (
         <Card>
@@ -63,7 +63,16 @@ export const DemoList: React.FC = () => {
                     title="Name"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("Name", sorter)}
-
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
 
                 <Table.Column
@@ -113,7 +122,17 @@ export const DemoList: React.FC = () => {
                     title="Created At"
                     render={(value) => <DateField value={value} format="LLL" />}
                     defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
-                    sorter
+                    sorter={{ multiple: 2 }}
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
 
 
@@ -122,6 +141,16 @@ export const DemoList: React.FC = () => {
                     title="Terminal Address Line"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("terminalAddress", sorter)}
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
 
                 <Table.Column
@@ -129,6 +158,16 @@ export const DemoList: React.FC = () => {
                     title="Street"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("terminal_street", sorter)}
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
 
                 <Table.Column
@@ -136,6 +175,16 @@ export const DemoList: React.FC = () => {
                     title="City"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("terminal_city", sorter)}
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
 
                 <Table.Column
@@ -143,8 +192,17 @@ export const DemoList: React.FC = () => {
                     title="State"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("terminal_state", sorter)}
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{ minWidth: 200 }}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...SelectProps}
+                            />
+                        </FilterDropdown>
+                    )}
                 />
-
                 <Table.Column<ITerminal>
                     title="Actions"
                     dataIndex="actions"
