@@ -1,14 +1,23 @@
-import { Flex, Spacer } from '@chakra-ui/react'
+import { CheckOutlined, CloseOutlined, FormOutlined } from '@ant-design/icons'
+import { Flex, Spacer, Text } from '@chakra-ui/react'
 import { Button, Card, Col, Form, Input, Row, SaveButton } from '@pankod/refine-antd'
 import { IResourceComponentsProps, useNavigation } from '@pankod/refine-core'
-import React from 'react'
+import React, { useState } from 'react'
 
 export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
 
 
     const { goBack } = useNavigation()
 
+    const [isEditMode, setIsEditMode] = useState(false)
 
+    const editPerform = () => {
+        setIsEditMode(true)
+    }
+
+    const CancelEdit = () => {
+        setIsEditMode(false)
+    }
 
 
     return (
@@ -23,40 +32,67 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                     }}
                 >
                     <Row>
+                        <Col style={{ marginInlineStart: "80%" }}>
+                            {isEditMode ?
+                                <Flex gap={16} style={{ cursor: "pointer", float: "right", fontSize: "20px" }}>
+                                    <Flex>
+                                        <CheckOutlined
+                                            onClick={() => { CancelEdit() }}
+                                        />
+                                        <Spacer />
+
+                                    </Flex>
+
+                                    <CloseOutlined
+                                        onClick={() => { CancelEdit() }}
+                                    />
+                                </Flex>
+
+                                :
+                                <FormOutlined style={{ cursor: "pointer", float: "right", fontSize: "20px" }}
+                                    onClick={() => { editPerform() }}
+                                />
+
+                            }
+                        </Col>
+                    </Row>
+                    <Row>
                         <Col xs={24} lg={24}>
-                            {/* <FormOutlined style={{ cursor: "pointer", float: "right" }}
-                            onClick={() => { editPerform() }}
-                        >
-                            Edit
-                        </FormOutlined> */}
                             <Row gutter={10}>
 
                                 <Col xs={24} lg={12}>
                                     <Form.Item
-                                        label={("User Name")}
-                                        name="userName"
+                                        label={("Printer IP")}
+                                        name="printerIP"
                                         rules={[
                                             {
                                                 required: true,
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'User1'} style={{ width: "50%", float: "right" }} />
+
+                                        {isEditMode ?
+                                            <Input defaultValue={'192.168.0.1'} style={{ float: "right" }} />
+                                            :
+                                            <Text >192.168.0.1</Text>}
                                     </Form.Item>
                                     <Form.Item
-                                        label={("Server Port")}
-                                        name="serverPort"
+                                        label={("Printer Paper Size")}
+                                        name="printerPaperSize"
                                         rules={[
                                             {
                                                 required: true,
                                             },
                                         ]}
                                     >
-                                        <Input defaultValue={'1234'} style={{ width: "50%", float: "right" }} />
+                                        {isEditMode ?
+                                            <Input defaultValue={'8.5 x 14 inches'} style={{ float: "right" }} />
+                                            :
+                                            <Text>8.5 × 14 inches</Text>}
                                     </Form.Item>
 
 
-                                    <Form.Item>
+                                    {/* <Form.Item>
                                         <Flex>
 
                                             <Button
@@ -70,7 +106,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                                             />
                                         </Flex>
 
-                                    </Form.Item>
+                                    </Form.Item> */}
                                 </Col>
                             </Row>
                         </Col>
