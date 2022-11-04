@@ -3,7 +3,7 @@ import React from 'react';
 
 const App: React.FC = () => (
   <Breadcrumb>
-    <Breadcrumb.Item><a href="http://localhost:3000/HecOne_Terminal">Home</a></Breadcrumb.Item>
+    <Breadcrumb.Item><a href="http://localhost:3000/HecOne_Terminal/show/id">Home</a></Breadcrumb.Item>
     <Breadcrumb.Item>
       <a href="http://localhost:3000/HecOne_Terminal/show/id">Show</a>
     </Breadcrumb.Item>

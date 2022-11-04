@@ -90,15 +90,15 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
 
     return (
         <Form layout="vertical" {...props.formProps}>
-            <Row gutter={[10, 0]} align="bottom">
-                <Col xs={24} xl={24} md={12}>
+            <Row align="bottom">
+                <Col >
                     <Form.Item label={"Name"} name="name">
                         <Input
                             prefix={<Icons.SearchOutlined />}
                         />
                     </Form.Item>
                 </Col>
-                <Col xs={24} xl={24} md={12}>
+                <Col >
                     <Form.Item
                         label={"Longitude"}
                         name="longitude"
@@ -110,7 +110,7 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
                         />
                     </Form.Item>
                 </Col>
-                <Col xs={24} xl={24} md={8}>
+                <Col >
                     <Form.Item
                         label={"Terminal Number"}
                         name="id"
@@ -122,7 +122,7 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
                         />
                     </Form.Item>
                 </Col>
-                <Col xs={24} xl={24} md={8}>
+                <Col >
                     <Form.Item>
                         <Button
                             style={{ width: "100%" }}

@@ -78,10 +78,11 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
             <Form>
                 <Row
                     // {...listProps}
-                    // gutter={[16, 16]}
-                    style={{ background: "#fff", padding: "24px 24px" }}
+                    gutter={[16, 16]}
+                    style={{ background: "#fff"}}
                 >
                     <div>
+                        <Col xl={18} xs={24}>
                         <List>
                             <Table {...tableProps} rowKey="id"
                             // onRow={(record) => {
@@ -193,6 +194,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                                 />
                             </Table>
                         </List>
+                        </Col>
                     </div>
                 </Row>
             </Form>
