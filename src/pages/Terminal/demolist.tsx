@@ -14,9 +14,11 @@ import {
     DeleteButton,
     EditButton,
     Space,
+    Card,
 } from "@pankod/refine-antd";
 
 import { ITerminal } from "../../interfaces";
+import { TerminalStatus } from "../../components/terminalStatus";
 
 export const DemoList: React.FC = () => {
     const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
@@ -48,12 +50,12 @@ export const DemoList: React.FC = () => {
     });
     // const { tableProps } = useTable<ITerminal>();
 
-    const { selectProps: categorySelectProps } = useSelect<ITerminal>({
-        resource: "HecOne_Terminal",
-    });
+    // const { selectProps: categorySelectProps } = useSelect<ITerminal>({
+    //     resource: "HecOne_Terminal",
+    // });
 
     return (
-        <List>
+        <Card>
             <Table {...tableProps} rowKey="id">
                 <Table.Column
                     className="link-css"
@@ -63,7 +65,39 @@ export const DemoList: React.FC = () => {
                     defaultSortOrder={getDefaultSortOrder("Name", sorter)}
 
                 />
+
                 <Table.Column
+                    dataIndex="station"
+                    title="Station"
+                    sorter={{ multiple: 2 }}
+                    defaultSortOrder={getDefaultSortOrder("station", sorter)}
+                />
+
+                <Table.Column
+                    dataIndex="device_id"
+                    title="Device Id"
+                    defaultSortOrder={getDefaultSortOrder("device_id", sorter)}
+                    sorter
+                />
+
+                <Table.Column
+                    dataIndex="type"
+                    title="Type"
+                    defaultSortOrder={getDefaultSortOrder("type", sorter)}
+                    sorter
+
+                />
+
+                <Table.Column
+                    dataIndex="status"
+                    
+                    title="Status"
+                    defaultSortOrder={getDefaultSortOrder("status", sorter)}
+                    sorter
+
+                />
+
+                {/* <Table.Column
                     dataIndex="longitude"
                     title="Longitude"
                     sorter={{ multiple: 1 }}
@@ -72,7 +106,7 @@ export const DemoList: React.FC = () => {
                     dataIndex="latitude"
                     title="Latitude"
                     sorter={{ multiple: 1 }}
-                />
+                /> */}
 
                 <Table.Column
                     dataIndex="created_at"
@@ -81,12 +115,7 @@ export const DemoList: React.FC = () => {
                     defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
                     sorter
                 />
-                <Table.Column
-                    dataIndex="device_id"
-                    title="Device Id"
-                    defaultSortOrder={getDefaultSortOrder("device_id", sorter)}
-                    sorter
-                />
+
 
                 <Table.Column
                     dataIndex="terminalAddress"
@@ -150,63 +179,10 @@ export const DemoList: React.FC = () => {
                                     ],
                                 }}
                             />
-                             </Space>
-                                    )}
-                                />
-                            <Table.Column dataIndex="title" title="title" />
-                            <Table.Column
-                                dataIndex="status"
-                                title="status"
-                                render={(value) => <TagField value={value} />}
-                            />
-                            <Table.Column
-                                dataIndex="createdAt"
-                                title="createdAt"
-                                render={(value) => <DateField format="LLL" value={value} />}
-                            />
-                            {/* <Table.Column
-                    dataIndex={["category", "id"]}
-                    title="category"
-                    render={(value) => {
-                        if (isLoading) {
-                            return <TextField value="Loading..." />;
-                        }
-
-                        return (
-                            <TextField
-                                value={
-                                    categoriesData?.data.find(
-                                        (item) => item.id === value,
-                                    )?.title
-                                }
-                            />
-                        );
-                    }}
-                    filterDropdown={(props) => (
-                        <FilterDropdown {...props}>
-                            <Select
-                                style={{ minWidth: 200 }}
-                                mode="multiple"
-                                placeholder="Select Category"
-                                {...categorySelectProps}
-                            />
-                        </FilterDropdown>
+                        </Space>
                     )}
-                /> */}
-                            {/* <Table.Column<ITerminal>
-                    title="Actions"
-                    dataIndex="actions"
-                    render={(_text, record): React.ReactNode => {
-                        return (
-                            <ShowButton
-                                size="small"
-                                recordItemId={record.id}
-                                hideText
-                            />
-                        );
-                    }}
-                /> */}
-                        </Table>
-        </List>
+                />
+            </Table>
+        </Card>
     );
 };
