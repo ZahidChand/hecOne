@@ -24,7 +24,6 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
             <Form
                 // {...formProps}
                 className="ant-advanced-search-form"
-                style={{ }}
                 layout="horizontal"
                 initialValues={{
                     isActive: true,

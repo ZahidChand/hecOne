@@ -181,17 +181,13 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                         {/* <Card > */}
                         <Tabs defaultActiveKey="1">
                             <Tabs.TabPane tab="Network Configurations" key="1">
-
                                 <TableContainer>
                                     <EditNetworkConfig />
-
                                 </TableContainer>
                             </Tabs.TabPane>
                             <Tabs.TabPane tab="Printer Configurations" key="2">
                                 <TableContainer>
-                                    <Table size='sm' width={"100%"}>
                                         <EditPrinterConfig />
-                                    </Table>
                                 </TableContainer>
                             </Tabs.TabPane>
                             <Tabs.TabPane tab="Restrictions" key="3">

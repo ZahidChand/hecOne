@@ -3,6 +3,7 @@ import { Flex, Spacer, Text } from '@chakra-ui/react'
 import { Button, Card, Col, Form, Input, Row, SaveButton } from '@pankod/refine-antd'
 import { IResourceComponentsProps, useNavigation } from '@pankod/refine-core'
 import React, { useState } from 'react'
+import '../NetworkConfig/editNetwork.css'
 
 export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
 
@@ -22,15 +23,15 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
 
     return (
         <>
-            <Card bordered={false} style={{ height: "100%" }}>
                 <Form
                     // {...formProps}
-                    style={{ marginTop: 10, width: "95%" }}
+                    className="ant-advanced-search-form"
                     layout="horizontal"
                     initialValues={{
                         isActive: true,
                     }}
                 >
+                    <div style={{ padding: "10px"}}>
                     <Row>
                         <Col style={{ marginInlineStart: "80%" }}>
                             {isEditMode ?
@@ -57,10 +58,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={24} lg={24}>
-                            <Row gutter={10}>
-
-                                <Col xs={24} lg={12}>
+                        <Col style={{ width: "50%" }}>
                                     <Form.Item
                                         label={("Printer IP")}
                                         name="printerIP"
@@ -74,7 +72,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                                         {isEditMode ?
                                             <Input defaultValue={'192.168.0.1'} style={{ float: "right" }} />
                                             :
-                                            <Text >192.168.0.1</Text>}
+                                            <Text style={{ float: "right", marginTop: "10px" }}>192.168.0.1</Text>}
                                     </Form.Item>
                                     <Form.Item
                                         label={("Printer Paper Size")}
@@ -88,7 +86,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                                         {isEditMode ?
                                             <Input defaultValue={'8.5 x 14 inches'} style={{ float: "right" }} />
                                             :
-                                            <Text>8.5 × 14 inches</Text>}
+                                            <Text style={{ float: "right", marginTop: "10px" }}>8.5 × 14 inches</Text>}
                                     </Form.Item>
 
 
@@ -107,13 +105,10 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                                         </Flex>
 
                                     </Form.Item> */}
-                                </Col>
-                            </Row>
                         </Col>
                     </Row>
+                    </div>
                 </Form>
-            </Card>
-
         </>
     )
 }
