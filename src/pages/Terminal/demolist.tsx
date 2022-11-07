@@ -50,9 +50,9 @@ export const DemoList: React.FC = () => {
     });
     // const { tableProps } = useTable<ITerminal>();
 
-    const { selectProps: SelectProps } = useSelect<ITerminal>({
-        resource: "HecOne_Terminal",
-    });
+    // const { selectProps: SelectProps } = useSelect<ITerminal>({
+    //     resource: "HecOne_Terminal",
+    // });
 
     return (
         <Card>
@@ -69,7 +69,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -106,17 +106,6 @@ export const DemoList: React.FC = () => {
 
                 />
 
-                {/* <Table.Column
-                    dataIndex="longitude"
-                    title="Longitude"
-                    sorter={{ multiple: 1 }}
-                />
-                <Table.Column
-                    dataIndex="latitude"
-                    title="Latitude"
-                    sorter={{ multiple: 1 }}
-                /> */}
-
                 <Table.Column
                     dataIndex="created_at"
                     title="Created At"
@@ -129,7 +118,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -147,7 +136,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -164,7 +153,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -181,7 +170,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -198,7 +187,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                {...SelectProps}
+                                // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}

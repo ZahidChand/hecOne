@@ -75,16 +75,16 @@ function TerminalPage() {
 
                 </div>
                 <div>
-                    <Accordion>
+                    <Accordion paddingLeft="700px" allowToggle >
                         <AccordionItem>
-                            <h2>
-                                <AccordionButton>
-                                    <Box flex='1' textAlign='left'>
+                            <h4>
+                                <AccordionButton fontWeight="light">
+                                    <Box flex='1' textAlign='left' fontSize="md">
                                         Filters
                                     </Box>
                                     <AccordionIcon />
                                 </AccordionButton>
-                            </h2>
+                            </h4>
                             <AccordionPanel pb={4}>
                                 <FilterView />
                             </AccordionPanel>
@@ -93,7 +93,7 @@ function TerminalPage() {
                 </div>
                 <div>
                     {
-                        switchPage ? <DemoList/> : <CardListView />
+                        switchPage ? <DemoList /> : <CardListView />
                     }
                 </div>
             </Form>
