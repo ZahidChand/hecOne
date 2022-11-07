@@ -10,10 +10,10 @@ export interface ITerminal {
     type: string,
     status: string,
     terminalAddress: string,
-    terminalStreet: string,
-    terminalCity: string,
-    terminalState: string,
-    terminalZipcode: number ,
+    terminal_street: string,
+    terminal_city: string,
+    terminal_state: string,
+    terminal_zipcode: number ,
 
 
 }

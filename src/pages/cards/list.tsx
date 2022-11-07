@@ -37,7 +37,16 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                 "longitude",
                 "latitude",
                 "created_at",
-                "terminalAddress"
+                "device_id",
+                "station",
+                "created_by",
+                "type",
+                "status",
+                "terminalAddress",
+                "terminal_street",
+                "terminal_city",
+                "terminal_state",
+                "terminal_zipcode"
             ],
         },
         pagination: { pageSize: 12, defaultCurrent: 2 },
@@ -67,7 +76,7 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                             {listProps?.dataSource?.map((terminal) => {
                                 return (
                                     <>
-                                        <Card style={{ width: 340 }}>
+                                        <Card style={{ width: 360 }}>
                                             <div key={terminal?.id}>
                                                 <Grid templateColumns="repeat(12, 1fr)" mt={3} mb={3}>
                                                     <GridItem colSpan={12}>
@@ -88,7 +97,18 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                                                                 </Text>
 
                                                                 <Text fontWeight={"sm"}>
-                                                                    {terminal?.terminalAddress}
+                                                                    <b>Station : </b>
+                                                                    {terminal?.station}
+                                                                </Text>
+
+                                                                <Text fontWeight={"sm"}>
+                                                                    <b>Status : </b>
+                                                                    {terminal?.status}
+                                                                </Text>
+
+                                                                <Text fontWeight={"sm"}>
+                                                                    <b>City : </b>
+                                                                    {terminal?.terminal_city}
                                                                 </Text>
                                                             </Stack>
                                                         </HStack>
