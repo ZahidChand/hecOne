@@ -139,13 +139,36 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
                                 }}
                             >
                                 <Typography.Text>
-                                    <Icons.EnvironmentOutlined />{" "}
-                                    Berlin
+                                    <Icons.DeploymentUnitOutlined /><b>{" Type : "}</b>
+                                    Liquefaction
                                 </Typography.Text>
 
                                 <Typography.Text>
-                                    <Icons.HomeOutlined /> {"TerminalAddress1"}
+                                    <Icons.HomeOutlined /><b>{" Station : "}</b>
+                                    Station131
                                 </Typography.Text>
+
+                                <Typography.Text>
+                                    <Icons.DashboardOutlined /><b>{" Status : "}</b>
+                                    Active
+                                </Typography.Text>
+
+                                <Typography.Text>
+                                    <Icons.LaptopOutlined /><b>{" Device : "}</b>
+                                    1256
+                                </Typography.Text>
+
+
+
+
+                                <Typography.Text>
+                                    <Icons.HomeOutlined /><b>{" Address : "}</b>
+                                    TerminalAddress1234,
+                                    Eichendorffstr. 13,
+                                    Allensbach,
+                                    Baden-Württemberg
+                                </Typography.Text>
+
                             </Space>
                         </Space>
                         {/* </Card> */}
