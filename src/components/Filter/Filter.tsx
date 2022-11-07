@@ -17,11 +17,11 @@ export const FilterView: React.FC<IResourceComponentsProps> = () => {
         ],
         metaData: {
             fields: [
-                "id",
+                // "id",
                 "name",
-                "longitude",
-                "latitude",
-                "created_at",
+                "status",
+                "city",
+                // "created_at",
             ],
         },
 
@@ -54,8 +54,8 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
                 </Box>
                 <Box >
                     <Form.Item
-                        label={"Longitude"}
-                        name="longitude"
+                        label={"Status"}
+                        name="status"
                     >
                         <Select
                             allowClear
@@ -66,8 +66,8 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
                 </Box>
                 <Box >
                     <Form.Item
-                        label={"Terminal Number"}
-                        name="id"
+                        label={"City"}
+                        name="city"
                     >
                         <Select
                             allowClear
