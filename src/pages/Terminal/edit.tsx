@@ -22,10 +22,20 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
         metaData: {
             fields: [
                 "id",
-              "name",
-              "longitude",
-              "latitude",
-              "created_at",
+                "name",
+                "longitude",
+                "latitude",
+                "created_at",
+                "device_id",
+                "station",
+                "created_by",
+                "type",
+                "status",
+                "terminalAddress",
+                "terminal_street",
+                "terminal_city",
+                "terminal_state",
+                "terminal_zipcode"
             ],
         },
     });
@@ -51,17 +61,7 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
                     })
                 }
             >
-                {/* <Form.Item
-                    label="ID"
-                    name="id"
-                    rules={[
-                        {
-                            required: true,
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item> */}
+
                 <Form.Item
                     label="Name"
                     name="name"
@@ -73,9 +73,10 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
                 >
                     <Input />
                 </Form.Item>
+
                 <Form.Item
-                    label="Longitude"
-                    name="longitude"
+                    label="Station"
+                    name="station"
                     rules={[
                         {
                             required: true,
@@ -84,9 +85,82 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
                 >
                     <Input />
                 </Form.Item>
+
                 <Form.Item
-                    label="Latitude"
-                    name="latitude"
+                    label="Device Id"
+                    name="device_id"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Type"
+                    name="type"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Status"
+                    name="status"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Terminal Address"
+                    name="terminalAddress"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Street"
+                    name="terminal_street"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="City"
+                    name="terminal_city"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="State"
+                    name="terminal_state"
                     rules={[
                         {
                             required: true,
