@@ -43,9 +43,9 @@ function TerminalPage() {
                 <div
                     style={{
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        flexWrap: "wrap",
+                        // alignItems: "center",
+                        // justifyContent: "space-between",
+                        // flexWrap: "wrap",
                         // gap: "8px",
                         // marginBottom: "16px",
                     }}
@@ -53,17 +53,14 @@ function TerminalPage() {
                     <Text style={{ fontSize: "24px" }}>
                         {("Terminals")}
                     </Text>
-                    <Form.Item style={{ marginLeft: "50px", marginTop: "-15px", marginBottom: "10px", fontSize: "24px" }} >
-                        {/* <Dropdown overlay={menu}>
-                            <a onClick={e => e.preventDefault()}>Filters</a>
-                        </Dropdown> */}
-                    </Form.Item>
+                    <Spacer/>
                     <Form.Item name="name" noStyle>
                         <Input
                             style={{
-                                width: "400px",
-                                marginTop: "-15px",
-                                marginLeft: "300px"
+                                height:"30px",
+                                width: "300px",
+                                // marginTop: "-15px",
+                                // marginLeft: "50px"
 
                             }}
                             placeholder={(" Search Terminal")}
@@ -71,14 +68,13 @@ function TerminalPage() {
                         />
                     </Form.Item>
                     <Spacer />
-                    <Switch checkedChildren="List View" unCheckedChildren="Card View" style={{ marginTop: "-15px", marginBottom: "10px" }} size="default" defaultChecked onClick={() => getpageViwe(switchPage)} />
-
-                </div>
-                <div>
-                    <Accordion paddingLeft="700px" allowToggle >
+                    <Switch checkedChildren="List View" unCheckedChildren="Card View" size="default" defaultChecked onClick={() => getpageViwe(switchPage)} />
+                    <Spacer />
+                    <div>
+                    <Accordion allowToggle>
                         <AccordionItem>
                             <h4>
-                                <AccordionButton fontWeight="light">
+                                <AccordionButton  width="300px" backgroundColor="white" border="1px solid grey" >
                                     <Box flex='1' textAlign='left' fontSize="md">
                                         Filters
                                     </Box>
@@ -91,6 +87,8 @@ function TerminalPage() {
                         </AccordionItem>
                     </Accordion>
                 </div>
+                </div>
+               
                 <div>
                     {
                         switchPage ? <DemoList /> : <CardListView />

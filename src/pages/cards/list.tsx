@@ -59,27 +59,14 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                 <Row
                     // {...listProps}
                     gutter={[16, 16]}
-                    style={{ background: "#fff", padding: "24px 24px" }}
+                    style={{ background: "#fff", padding: "80px", alignContent: "center" }}
                 >
-                    {/* <FilterView /> */}
-                    <Col xs={24} sm={18}>
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                flexWrap: "wrap",
-                                gap: "8px",
-                                marginBottom: "16px",
-                            }}
-                        >
                             {listProps?.dataSource?.map((terminal) => {
                                 return (
                                     <>
-                                        <Card style={{ width: 360 }}>
+                            <div style={{display: "flex" }}>
+                                        <Card style={{ width: 400 , marginRight: "20px", marginLeft: "20px"}}>
                                             <div key={terminal?.id}>
-                                                <Grid templateColumns="repeat(12, 1fr)" mt={3} mb={3}>
-                                                    <GridItem colSpan={12}>
                                                         <HStack>
                                                             <Center onClick={() => {
                                                                 show("HecOne_Terminal", terminal?.id);
@@ -112,15 +99,12 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                                                                 </Text>
                                                             </Stack>
                                                         </HStack>
-                                                    </GridItem>
-                                                </Grid>
                                             </div>
                                         </Card>
+                                        </div>
                                     </>
                                 )
                             })}
-                        </div>
-                    </Col>
                 </Row>
             </Form>
         </>
