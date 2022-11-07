@@ -15,7 +15,7 @@ import {
     EditButton,
     Space,
     Card,
-    
+
 } from "@pankod/refine-antd";
 
 import { ITerminal } from "../../interfaces";
@@ -58,7 +58,7 @@ export const DemoList: React.FC = () => {
         <Card>
             <Table {...tableProps} rowKey="id">
                 <Table.Column
-                    className="link-css"
+                    // className="link-css"
                     dataIndex="name"
                     title="Name"
                     sorter={{ multiple: 2 }}
@@ -69,7 +69,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -99,7 +99,7 @@ export const DemoList: React.FC = () => {
 
                 <Table.Column
                     dataIndex="status"
-                    
+
                     title="Status"
                     defaultSortOrder={getDefaultSortOrder("status", sorter)}
                     sorter
@@ -118,7 +118,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -136,7 +136,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -153,7 +153,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -170,7 +170,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -187,7 +187,7 @@ export const DemoList: React.FC = () => {
                                 style={{ minWidth: 200 }}
                                 mode="multiple"
                                 placeholder="Select Category"
-                                // {...SelectProps}
+                            // {...SelectProps}
                             />
                         </FilterDropdown>
                     )}
@@ -208,6 +208,8 @@ export const DemoList: React.FC = () => {
                                 recordItemId={record.id}
                             />
                             <DeleteButton
+                                confirmOkText="Yes"
+                                confirmCancelText="No"
                                 hideText
                                 size="small"
                                 recordItemId={record.id}
