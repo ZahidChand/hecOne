@@ -6,21 +6,26 @@ import {
 import {
     useSimpleList,
     Row,
-    Col,
     Form,
     Card,
-    Avatar
+    Avatar,
+    DeleteButton,
+    ShowButton,
+    Dropdown,
+    Menu,
+    Icons
 } from "@pankod/refine-antd";
 import { ITerminal } from "../../interfaces";
 import { Center, Grid, GridItem, HStack, Stack, Text, Wrap } from "@chakra-ui/react";
-import { FilterView } from "../../components/Filter/Filter";
+import { EyeTwoTone, FormOutlined } from "@ant-design/icons";
 
 type TerminalItemProps = {
     item: ITerminal;
 };
 
 export const CardListView: React.FC<IResourceComponentsProps> = () => {
-    const { show } = useNavigation();
+    const { show, edit } = useNavigation();
+
     const { listProps } = useSimpleList<
         ITerminal
     >({
@@ -61,52 +66,258 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                     gutter={[16, 16]}
                     style={{ background: "#fff", padding: "80px", alignContent: "center" }}
                 >
-                            {listProps?.dataSource?.map((terminal) => {
-                                return (
-                                    <>
-                            <div style={{display: "flex" }}>
-                                        <Card style={{ width: 400 , marginRight: "20px", marginLeft: "20px"}}>
-                                            <div key={terminal?.id}>
-                                                        <HStack>
-                                                            <Center onClick={() => {
-                                                                show("HecOne_Terminal", terminal?.id);
-                                                            }}>
-                                                                <Avatar
-                                                                    style={{ cursor: "pointer" }}
-                                                                    size={120}
-                                                                    src={"https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"}
-                                                                    alt={terminal.name}
-                                                                />
-                                                            </Center>
-                                                            <Stack>
-                                                                <Text fontWeight={"bold"}>
-                                                                    {terminal?.name}
-                                                                </Text>
+                    {listProps?.dataSource?.map((terminal) => {
+                        return (
+                            <>
+                                {/* <div style={{ display: "flex" }}>
+                                    <Card style={{ width: 400, marginRight: "20px", marginLeft: "20px" }}
+                                    // actions={[
+                                    //     <EditOutlined key={"edit"} title={'Edit'} onClick={() => {
+                                    //         edit("HecOne_Terminal", terminal?.id);
 
-                                                                <Text fontWeight={"sm"}>
-                                                                    <b>Station : </b>
-                                                                    {terminal?.station}
-                                                                </Text>
+                                    //     }} />,
+                                    //     <ShowButton
+                                    //         title="Show"
+                                    //         hideText
+                                    //         size="small"
+                                    //         recordItemId={terminal.id}
+                                    //     />
+                                    //     ,
+                                    //     <DeleteButton recordItemId={terminal.id}
+                                    //         confirmOkText="Yes"
+                                    //         confirmCancelText="No"
+                                    //         title="Delete"
+                                    //     />
+                                    // ]}
 
-                                                                <Text fontWeight={"sm"}>
-                                                                    <b>Status : </b>
-                                                                    {terminal?.status}
-                                                                </Text>
+                                    >
+                                        <div key={terminal?.id}>
+                                            <HStack>
+                                                <Center onClick={() => {
+                                                    show("HecOne_Terminal", terminal?.id);
+                                                }}>
+                                                    <Avatar
+                                                        style={{ cursor: "pointer" }}
+                                                        size={120}
+                                                        src={"https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"}
+                                                        alt={terminal.name}
+                                                    />
+                                                </Center>
+                                                <div>
+                                                    <Dropdown
+                                                        overlay={
+                                                            <Menu mode="vertical">
+                                                                <Menu.Item
+                                                                    key="1"
+                                                                    style={{
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                    icon={
+                                                                        <FormOutlined
+                                                                            style={{
+                                                                                color: "green",
+                                                                                marginLeft: "17px"
 
-                                                                <Text fontWeight={"sm"}>
-                                                                    <b>City : </b>
-                                                                    {terminal?.terminal_city}
-                                                                </Text>
-                                                            </Stack>
-                                                        </HStack>
-                                            </div>
-                                        </Card>
+                                                                            }}
+                                                                        />
+                                                                    }
+                                                                    onClick={() => {
+                                                                        edit("HecOne_Terminal", terminal?.id);
+
+                                                                    }}
+                                                                >
+                                                                    {("Edit")}
+                                                                </Menu.Item>
+
+                                                                <Menu.Item
+                                                                    key="2"
+                                                                    style={{
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                >
+                                                                    <ShowButton
+                                                                        icon={<EyeTwoTone />}
+                                                                        style={{ border: "0px", marginLeft: "10px" }}
+                                                                        title="Show"
+                                                                        hideText
+                                                                        size="small"
+                                                                        recordItemId={terminal.id}
+                                                                    />
+                                                                    {("Show")}
+                                                                </Menu.Item>
+                                                                <Menu.Item
+                                                                    key="3"
+                                                                    style={{
+                                                                        fontSize: 15,
+                                                                        display: "flex",
+                                                                        alignItems: "center",
+                                                                        fontWeight: 500,
+                                                                    }}
+
+                                                                >
+                                                                    <DeleteButton recordItemId={terminal.id}
+                                                                        style={{ border: "0px" }}
+                                                                        confirmOkText="Yes"
+                                                                        confirmCancelText="No"
+                                                                        title="Delete"
+                                                                    />
+                                                                </Menu.Item>
+
+                                                            </Menu>
+
+                                                        }
+                                                        trigger={["click"]}
+                                                    >
+                                                        <Icons.MoreOutlined
+                                                            style={{
+                                                                fontSize: 24,
+                                                            }}
+                                                        />
+                                                    </Dropdown>
+                                                </div>
+                                                <Stack>
+                                                    <Text fontWeight={"bold"}>
+                                                        {terminal?.name}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>Station : </b>
+                                                        {terminal?.station}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>Status : </b>
+                                                        {terminal?.status}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>City : </b>
+                                                        {terminal?.terminal_city}
+                                                    </Text>
+                                                </Stack>
+
+                                            </HStack>
                                         </div>
-                                    </>
-                                )
-                            })}
+                                    </Card>
+                                </div> */}
+                                <div style={{ display: "flex" }}>
+                                    <Card style={{ width: 400, marginRight: "20px", marginLeft: "20px" }} >
+                                        <div key={terminal?.id}>
+                                            <Grid templateColumns="repeat(10, 1fr)" mt={3} mb={3}>
+                                                <GridItem colSpan={2}>
+                                                    <Center onClick={() => {
+                                                        show("HecOne_Terminal", terminal?.id);
+                                                    }}>
+                                                        <Avatar
+                                                            style={{ cursor: "pointer" }}
+                                                            size={120}
+                                                            src={"https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"}
+                                                            alt={terminal.name}
+                                                        />
+                                                    </Center>
+                                                </GridItem>
+                                                <GridItem colSpan={7} style={{ display: "flex", justifyContent: "center", flexDirection: "column", marginLeft: "23px" }}>
+                                                    <Text fontWeight={"bold"}>
+                                                        {terminal?.name}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>Station : </b>
+                                                        {terminal?.station}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>Status : </b>
+                                                        {terminal?.status}
+                                                    </Text>
+
+                                                    <Text fontWeight={"sm"}>
+                                                        <b>City : </b>
+                                                        {terminal?.terminal_city}
+                                                    </Text>
+                                                </GridItem>
+                                                <GridItem colSpan={1} textAlign={"right"}>
+                                                    <Dropdown
+                                                        overlay={
+                                                            <Menu mode="vertical">
+                                                                <Menu.Item
+                                                                    key="1"
+                                                                    style={{
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                    icon={
+                                                                        <FormOutlined
+                                                                            style={{
+                                                                                color: "green",
+                                                                                marginLeft: "17px"
+
+                                                                            }}
+                                                                        />
+                                                                    }
+                                                                    onClick={() => {
+                                                                        edit("HecOne_Terminal", terminal?.id);
+
+                                                                    }}
+                                                                >
+                                                                    {("Edit")}
+                                                                </Menu.Item>
+
+                                                                <Menu.Item
+                                                                    key="2"
+                                                                    style={{
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                >
+                                                                    <ShowButton
+                                                                        icon={<EyeTwoTone />}
+                                                                        style={{ border: "0px", marginLeft: "10px" }}
+                                                                        title="Show"
+                                                                        hideText
+                                                                        size="small"
+                                                                        recordItemId={terminal.id}
+                                                                    />
+                                                                    {("Show")}
+                                                                </Menu.Item>
+                                                                <Menu.Item
+                                                                    key="3"
+                                                                    style={{
+                                                                        fontSize: 15,
+                                                                        display: "flex",
+                                                                        alignItems: "center",
+                                                                        fontWeight: 500,
+                                                                    }}
+
+                                                                >
+                                                                    <DeleteButton recordItemId={terminal.id}
+                                                                        style={{ border: "0px" }}
+                                                                        confirmOkText="Yes"
+                                                                        confirmCancelText="No"
+                                                                        title="Delete"
+                                                                    />
+                                                                </Menu.Item>
+
+                                                            </Menu>
+
+                                                        }
+                                                        trigger={["click"]}
+                                                    >
+                                                        <Icons.MoreOutlined
+                                                            style={{
+                                                                fontSize: 24,
+                                                            }}
+                                                        />
+                                                    </Dropdown>
+                                                </GridItem>
+                                            </Grid>
+                                        </div>
+                                    </Card>
+                                </div>
+
+                            </>
+                        )
+                    })}
                 </Row>
-            </Form>
+            </Form >
         </>
     );
 };

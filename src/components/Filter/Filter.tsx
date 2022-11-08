@@ -20,7 +20,7 @@ export const FilterView: React.FC<IResourceComponentsProps> = () => {
                 // "id",
                 "name",
                 "status",
-                "city",
+                "terminal_city",
                 // "created_at",
             ],
         },
