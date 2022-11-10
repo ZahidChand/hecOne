@@ -4,13 +4,15 @@ import React from "react"
 const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>
-      <a href="http://localhost:3000/HecOne_Terminal">Terminal</a>
+      <a href={`${process.env.REACT_APP_API}/HecOne_Terminal`}>Terminal</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>
-      <a href="http://localhost:3000/HecOne_Terminal/show/id">Details</a>
+      <a href={`${process.env.REACT_APP_API}/HecOne_Terminal/show/id`}>
+        Details
+      </a>
     </Breadcrumb.Item>
     {/* <Breadcrumb.Item>
-      <a href="http://localhost:3000/HecOne_Terminal/edit/id">Edit</a>
+      <a href={`${process.env.REACT_APP_API}/HecOne_Terminal/edit/id`}>Edit</a>
     </Breadcrumb.Item> */}
     {/* <Breadcrumb.Item>An Application</Breadcrumb.Item> */}
   </Breadcrumb>
