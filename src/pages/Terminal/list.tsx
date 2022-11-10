@@ -1,12 +1,4 @@
-import {
-  IResourceComponentsProps,
-  getDefaultFilter,
-  useMany,
-  CrudFilters,
-  useTranslate,
-  useNavigation,
-} from "@pankod/refine-core"
-
+import { IResourceComponentsProps } from "@pankod/refine-core"
 import {
   Table,
   useTable,
@@ -15,48 +7,17 @@ import {
   ShowButton,
   DeleteButton,
   getDefaultSortOrder,
-  FilterDropdown,
-  Select,
-  useSelect,
   DateField,
-  TextField,
-  Button,
-  Icon,
   Form,
-  Input,
   Row,
   Col,
-  FormProps,
-  DatePicker,
-  Icons,
-  Card,
 } from "@pankod/refine-antd"
 
 import { ITerminal } from "../../interfaces"
-import {
-  Box,
-  ButtonGroup,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  HStack,
-  List,
-  Spacer,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react"
-import { SearchOutlined } from "@ant-design/icons"
-import { useRef } from "react"
-import { FilterView } from "../../components/Filter/Filter"
-import show from "./show"
-import { color, Link } from "@pankod/refine-mui"
+import { List } from "@chakra-ui/react"
 import "./terminal.css"
-import { text } from "stream/consumers"
 export const GridListView: React.FC<IResourceComponentsProps> = () => {
-  const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
+  const { tableProps, sorter } = useTable<ITerminal>({
     initialSorter: [
       {
         field: "name",
@@ -83,8 +44,6 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
       ],
     },
   })
-  const t = useTranslate()
-  const { show } = useNavigation()
 
   return (
     <>

@@ -1,5 +1,4 @@
 import {
-  DateField,
   Table,
   useTable,
   FilterDropdown,
@@ -140,13 +139,13 @@ export const DemoList: React.FC = () => {
           )}
         />
 
-        <Table.Column
+        {/* <Table.Column
           dataIndex="created_at"
           title="Created At"
           render={(value) => <DateField value={value} format="LLL" />}
           defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
           sorter={{ multiple: 2 }}
-        />
+        /> */}
 
         <Table.Column<ITerminal>
           title="Actions"

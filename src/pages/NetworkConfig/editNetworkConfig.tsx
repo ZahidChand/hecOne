@@ -1,27 +1,11 @@
-import {
-  CheckOutlined,
-  CloseOutlined,
-  EditOutlined,
-  FormOutlined,
-} from "@ant-design/icons"
+import { CheckOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons"
 import { Flex, Input, Spacer, Text } from "@chakra-ui/react"
-import { faCheck } from "@fortawesome/free-solid-svg-icons"
-import {
-  Button,
-  Col,
-  Form,
-  List,
-  Row,
-  SaveButton,
-  Select,
-} from "@pankod/refine-antd"
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import { Col, Form, Row } from "@pankod/refine-antd"
+import { IResourceComponentsProps } from "@pankod/refine-core"
 import { useState } from "react"
 import "./editNetwork.css"
 
 export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
-  const { goBack } = useNavigation()
-
   const [isEditMode, setIsEditMode] = useState(false)
 
   const editPerform = () => {
@@ -179,28 +163,6 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                   </Text>
                 )}
               </Form.Item>
-
-              {/* <Form.Item>
-                            {
-                                isEditMode ?
-                                    <Flex>
-
-                                        <Button
-                                            onClick={() => { goBack() }}
-                                            style={{ cursor: "pointer", width: "40%", float: "right" }}>
-                                            Cancel
-                                        </Button>
-                                        <Spacer />
-                                        <SaveButton
-                                            style={{ width: "40%", float: "right" }}
-                                        />
-
-                                    </Flex>
-                                    :
-                                    ''
-                            }
-
-                        </Form.Item> */}
             </Col>
           </Row>
         </div>

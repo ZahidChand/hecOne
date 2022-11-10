@@ -1,7 +1,7 @@
 import { FormProps, Icons } from "@pankod/refine-antd"
-import { IResourceComponentsProps, useTranslate } from "@pankod/refine-core"
+import { IResourceComponentsProps } from "@pankod/refine-core"
 import { useTable } from "@pankod/refine-antd"
-import { Button, Card, Col, DatePicker, Input, Row, Select } from "antd"
+import { Button, Card, Input, Select } from "antd"
 import React from "react"
 import { ITerminal } from "../../interfaces"
 import { Form } from "@pankod/refine-antd"
@@ -36,10 +36,6 @@ export const FilterView: React.FC<IResourceComponentsProps> = () => {
 }
 
 const Filter: React.FC<{ formProps: FormProps }> = (props) => {
-  const t = useTranslate()
-
-  const { RangePicker } = DatePicker
-
   return (
     <Form layout="vertical" {...props.formProps}>
       <Stack>

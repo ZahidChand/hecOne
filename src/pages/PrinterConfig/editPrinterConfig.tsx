@@ -1,21 +1,11 @@
 import { CheckOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons"
 import { Flex, Spacer, Text } from "@chakra-ui/react"
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Input,
-  Row,
-  SaveButton,
-} from "@pankod/refine-antd"
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import { Col, Form, Input, Row } from "@pankod/refine-antd"
+import { IResourceComponentsProps } from "@pankod/refine-core"
 import React, { useState } from "react"
 import "../NetworkConfig/editNetwork.css"
 
 export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
-  const { goBack } = useNavigation()
-
   const [isEditMode, setIsEditMode] = useState(false)
 
   const editPerform = () => {
@@ -119,22 +109,6 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                   </Text>
                 )}
               </Form.Item>
-
-              {/* <Form.Item>
-                                        <Flex>
-
-                                            <Button
-                                                onClick={() => { goBack() }}
-                                                style={{ cursor: "pointer", width: "40%", float: "right" }}>
-                                                Cancel
-                                            </Button>
-                                            <Spacer />
-                                            <SaveButton
-                                                style={{ width: "40%", float: "right" }}
-                                            />
-                                        </Flex>
-
-                                    </Form.Item> */}
             </Col>
           </Row>
         </div>

@@ -8,22 +8,16 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react"
-import { Form, Input, Switch } from "@pankod/refine-antd"
+import { Form, Input } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
 import { DemoList } from "../../pages/Terminal/demolist"
 import { FilterView } from "../Filter/Filter"
+import { FaListUl, FaTh } from "react-icons/fa"
 
 function TerminalPage() {
-  const [switchPage, setSwitchPage] = useState(true)
+  const [gridView, setGridView] = useState<boolean>(false)
 
-  const getpageViwe = (event: any) => {
-    if (switchPage === false) {
-      setSwitchPage(true)
-    } else {
-      setSwitchPage(false)
-    }
-  }
   return (
     <Form>
       <div
@@ -37,14 +31,30 @@ function TerminalPage() {
           <Text style={{ fontSize: "24px" }}>Terminals</Text>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Switch
-            style={{ margin: "0 5px" }}
-            checkedChildren="List View"
-            unCheckedChildren="Card View"
-            size="default"
-            defaultChecked
-            onClick={() => getpageViwe(switchPage)}
-          />
+          <div style={{ display: "flex" }}>
+            <div
+              style={{
+                backgroundColor: !gridView ? "white" : "transparent",
+                padding: "5px 10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={(_) => setGridView(false)}
+            >
+              <FaListUl />
+            </div>
+            <div
+              onClick={(_) => setGridView(true)}
+              style={{
+                backgroundColor: gridView ? "white" : "transparent",
+                padding: "5px 10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              <FaTh />
+            </div>
+          </div>
           <Form.Item name="name" noStyle>
             <Input
               style={{
@@ -80,7 +90,7 @@ function TerminalPage() {
         </div>
       </div>
 
-      <div>{switchPage ? <DemoList /> : <CardListView />}</div>
+      <div>{!gridView ? <DemoList /> : <CardListView />}</div>
     </Form>
   )
 }
