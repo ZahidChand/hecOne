@@ -1,4 +1,4 @@
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import { useNavigation } from "@pankod/refine-core"
 
 import {
   useSimpleList,
@@ -13,22 +13,10 @@ import {
   Icons,
 } from "@pankod/refine-antd"
 import { ITerminal } from "../../interfaces"
-import {
-  Center,
-  Grid,
-  GridItem,
-  HStack,
-  Stack,
-  Text,
-  Wrap,
-} from "@chakra-ui/react"
+import { Center, Grid, GridItem, Text } from "@chakra-ui/react"
 import { EyeTwoTone, FormOutlined } from "@ant-design/icons"
 
-type TerminalItemProps = {
-  item: ITerminal
-}
-
-export const CardListView: React.FC<IResourceComponentsProps> = () => {
+export const CardListView: React.FC = () => {
   const { show, edit } = useNavigation()
 
   const { listProps } = useSimpleList<ITerminal>({

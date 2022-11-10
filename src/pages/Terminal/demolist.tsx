@@ -1,15 +1,10 @@
-import { useMany } from "@pankod/refine-core"
 import {
-  List,
-  TextField,
-  TagField,
   DateField,
   Table,
   useTable,
   FilterDropdown,
   Select,
   ShowButton,
-  useSelect,
   getDefaultSortOrder,
   DeleteButton,
   EditButton,
@@ -20,7 +15,7 @@ import {
 import { ITerminal } from "../../interfaces"
 
 export const DemoList: React.FC = () => {
-  const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
+  const { tableProps, sorter } = useTable<ITerminal>({
     initialSorter: [
       {
         field: "name",
@@ -47,31 +42,15 @@ export const DemoList: React.FC = () => {
       ],
     },
   })
-  // const { tableProps } = useTable<ITerminal>();
-
-  // const { selectProps: SelectProps } = useSelect<ITerminal>({
-  //     resource: "HecOne_Terminal",
-  // });
 
   return (
     <Card>
-      <Table {...tableProps} rowKey="id">
+      <Table {...tableProps} rowKey="id" style={{ cursor: "pointer" }}>
         <Table.Column
-          // className="link-css"
           dataIndex="name"
           title="Name"
           sorter={{ multiple: 2 }}
           defaultSortOrder={getDefaultSortOrder("Name", sorter)}
-          filterDropdown={(props) => (
-            <FilterDropdown {...props}>
-              <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
-              />
-            </FilterDropdown>
-          )}
         />
 
         <Table.Column
@@ -96,48 +75,13 @@ export const DemoList: React.FC = () => {
         />
 
         <Table.Column
-          dataIndex="status"
-          title="Status"
-          defaultSortOrder={getDefaultSortOrder("status", sorter)}
-          sorter
-        />
-
-        <Table.Column
-          dataIndex="created_at"
-          title="Created At"
-          render={(value) => <DateField value={value} format="LLL" />}
-          defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
-          sorter={{ multiple: 2 }}
-          filterDropdown={(props) => (
-            <FilterDropdown {...props}>
-              <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
-              />
-            </FilterDropdown>
-          )}
-        />
-
-        <Table.Column
           dataIndex="terminalAddress"
           title="Terminal Address Line"
           sorter={{ multiple: 2 }}
           defaultSortOrder={getDefaultSortOrder("terminalAddress", sorter)}
-          filterDropdown={(props) => (
-            <FilterDropdown {...props}>
-              <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
-              />
-            </FilterDropdown>
-          )}
         />
 
-        <Table.Column
+        {/* <Table.Column
           dataIndex="terminal_street"
           title="Street"
           sorter={{ multiple: 2 }}
@@ -152,9 +96,9 @@ export const DemoList: React.FC = () => {
               />
             </FilterDropdown>
           )}
-        />
+        /> */}
 
-        <Table.Column
+        {/* <Table.Column
           dataIndex="terminal_city"
           title="City"
           sorter={{ multiple: 2 }}
@@ -169,24 +113,41 @@ export const DemoList: React.FC = () => {
               />
             </FilterDropdown>
           )}
-        />
+        /> */}
 
         <Table.Column
           dataIndex="terminal_state"
           title="State"
           sorter={{ multiple: 2 }}
           defaultSortOrder={getDefaultSortOrder("terminal_state", sorter)}
+        />
+
+        <Table.Column
+          dataIndex="status"
+          title="Status"
+          defaultSortOrder={getDefaultSortOrder("status", sorter)}
+          sorter
           filterDropdown={(props) => (
             <FilterDropdown {...props}>
               <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
+                placeholder="Select Status"
+                options={[
+                  { label: "Active", value: "Active" },
+                  { label: "In-Active", value: "In-Active" },
+                ]}
               />
             </FilterDropdown>
           )}
         />
+
+        <Table.Column
+          dataIndex="created_at"
+          title="Created At"
+          render={(value) => <DateField value={value} format="LLL" />}
+          defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
+          sorter={{ multiple: 2 }}
+        />
+
         <Table.Column<ITerminal>
           title="Actions"
           dataIndex="actions"
