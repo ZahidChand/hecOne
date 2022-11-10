@@ -1,5 +1,5 @@
-import { CheckOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons";
-import { Flex, Spacer, Text } from "@chakra-ui/react";
+import { CheckOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons"
+import { Flex, Spacer, Text } from "@chakra-ui/react"
 import {
   Button,
   Card,
@@ -8,23 +8,23 @@ import {
   Input,
   Row,
   SaveButton,
-} from "@pankod/refine-antd";
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core";
-import React, { useState } from "react";
-import "../NetworkConfig/editNetwork.css";
+} from "@pankod/refine-antd"
+import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import React, { useState } from "react"
+import "../NetworkConfig/editNetwork.css"
 
 export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
-  const { goBack } = useNavigation();
+  const { goBack } = useNavigation()
 
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false)
 
   const editPerform = () => {
-    setIsEditMode(true);
-  };
+    setIsEditMode(true)
+  }
 
   const CancelEdit = () => {
-    setIsEditMode(false);
-  };
+    setIsEditMode(false)
+  }
 
   return (
     <>
@@ -51,7 +51,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                   <Flex>
                     <CheckOutlined
                       onClick={() => {
-                        CancelEdit();
+                        CancelEdit()
                       }}
                     />
                     <Spacer />
@@ -59,7 +59,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
 
                   <CloseOutlined
                     onClick={() => {
-                      CancelEdit();
+                      CancelEdit()
                     }}
                   />
                 </Flex>
@@ -71,7 +71,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                     fontSize: "20px",
                   }}
                   onClick={() => {
-                    editPerform();
+                    editPerform()
                   }}
                 />
               )}
@@ -140,7 +140,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
         </div>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default EditPrinterConfig;
+export default EditPrinterConfig

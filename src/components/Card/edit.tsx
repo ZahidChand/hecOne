@@ -1,4 +1,4 @@
-import { useTranslate, useApiUrl } from "@pankod/refine-core";
+import { useTranslate, useApiUrl } from "@pankod/refine-core"
 
 import {
   Edit,
@@ -18,29 +18,29 @@ import {
   Grid,
   getValueFromEvent,
   useSelect,
-} from "@pankod/refine-antd";
-import { ITerminal } from "../../interfaces";
+} from "@pankod/refine-antd"
+import { ITerminal } from "../../interfaces"
 
-const { Text } = Typography;
+const { Text } = Typography
 
 type EditProductProps = {
-  drawerProps: DrawerProps;
-  formProps: FormProps;
-  saveButtonProps: ButtonProps;
-};
+  drawerProps: DrawerProps
+  formProps: FormProps
+  saveButtonProps: ButtonProps
+}
 
 export const EditProduct: React.FC<EditProductProps> = ({
   drawerProps,
   formProps,
   saveButtonProps,
 }) => {
-  const t = useTranslate();
-  const apiUrl = useApiUrl();
-  const breakpoint = Grid.useBreakpoint();
+  const t = useTranslate()
+  const apiUrl = useApiUrl()
+  const breakpoint = Grid.useBreakpoint()
 
   const { selectProps: categorySelectProps } = useSelect<ITerminal>({
     resource: "categories",
-  });
+  })
 
   return (
     <Drawer
@@ -156,5 +156,5 @@ export const EditProduct: React.FC<EditProductProps> = ({
         </Form>
       </Edit>
     </Drawer>
-  );
-};
+  )
+}

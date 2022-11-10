@@ -3,9 +3,9 @@ import {
   CloseOutlined,
   EditOutlined,
   FormOutlined,
-} from "@ant-design/icons";
-import { Flex, Input, Spacer, Text } from "@chakra-ui/react";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+} from "@ant-design/icons"
+import { Flex, Input, Spacer, Text } from "@chakra-ui/react"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
 import {
   Button,
   Col,
@@ -14,23 +14,23 @@ import {
   Row,
   SaveButton,
   Select,
-} from "@pankod/refine-antd";
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core";
-import { useState } from "react";
-import "./editNetwork.css";
+} from "@pankod/refine-antd"
+import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import { useState } from "react"
+import "./editNetwork.css"
 
 export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
-  const { goBack } = useNavigation();
+  const { goBack } = useNavigation()
 
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false)
 
   const editPerform = () => {
-    setIsEditMode(true);
-  };
+    setIsEditMode(true)
+  }
 
   const CancelEdit = () => {
-    setIsEditMode(false);
-  };
+    setIsEditMode(false)
+  }
   return (
     <>
       <Form
@@ -56,7 +56,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                   <Flex>
                     <CheckOutlined
                       onClick={() => {
-                        CancelEdit();
+                        CancelEdit()
                       }}
                     />
                     <Spacer />
@@ -64,7 +64,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
 
                   <CloseOutlined
                     onClick={() => {
-                      CancelEdit();
+                      CancelEdit()
                     }}
                   />
                 </Flex>
@@ -76,7 +76,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     fontSize: "20px",
                   }}
                   onClick={() => {
-                    editPerform();
+                    editPerform()
                   }}
                 />
               )}
@@ -206,7 +206,7 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
         </div>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default EditNetworkConfig;
+export default EditNetworkConfig

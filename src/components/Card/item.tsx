@@ -4,14 +4,14 @@ import {
   Divider,
   NumberField,
   Typography,
-} from "@pankod/refine-antd";
-import { ITerminal } from "../../interfaces";
+} from "@pankod/refine-antd"
+import { ITerminal } from "../../interfaces"
 
-const { Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography
 
 type TerminalItemProps = {
-  item: ITerminal;
-};
+  item: ITerminal
+}
 
 export const TerminalItem: React.FC<TerminalItemProps> = ({ item }) => {
   return (
@@ -97,5 +97,5 @@ export const TerminalItem: React.FC<TerminalItemProps> = ({ item }) => {
                 <p>Card content</p>
             </Card> */}
     </>
-  );
-};
+  )
+}

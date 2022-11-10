@@ -1,4 +1,4 @@
-import { useMany } from "@pankod/refine-core";
+import { useMany } from "@pankod/refine-core"
 import {
   List,
   TextField,
@@ -15,9 +15,9 @@ import {
   EditButton,
   Space,
   Card,
-} from "@pankod/refine-antd";
+} from "@pankod/refine-antd"
 
-import { ITerminal } from "../../interfaces";
+import { ITerminal } from "../../interfaces"
 
 export const DemoList: React.FC = () => {
   const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
@@ -46,7 +46,7 @@ export const DemoList: React.FC = () => {
         "terminal_zipcode",
       ],
     },
-  });
+  })
   // const { tableProps } = useTable<ITerminal>();
 
   // const { selectProps: SelectProps } = useSelect<ITerminal>({
@@ -220,5 +220,5 @@ export const DemoList: React.FC = () => {
         />
       </Table>
     </Card>
-  );
-};
+  )
+}

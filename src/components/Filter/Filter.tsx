@@ -1,11 +1,11 @@
-import { FormProps, Icons } from "@pankod/refine-antd";
-import { IResourceComponentsProps, useTranslate } from "@pankod/refine-core";
-import { useTable } from "@pankod/refine-antd";
-import { Button, Card, Col, DatePicker, Input, Row, Select } from "antd";
-import React from "react";
-import { ITerminal } from "../../interfaces";
-import { Form } from "@pankod/refine-antd";
-import { Box, Stack } from "@chakra-ui/react";
+import { FormProps, Icons } from "@pankod/refine-antd"
+import { IResourceComponentsProps, useTranslate } from "@pankod/refine-core"
+import { useTable } from "@pankod/refine-antd"
+import { Button, Card, Col, DatePicker, Input, Row, Select } from "antd"
+import React from "react"
+import { ITerminal } from "../../interfaces"
+import { Form } from "@pankod/refine-antd"
+import { Box, Stack } from "@chakra-ui/react"
 
 export const FilterView: React.FC<IResourceComponentsProps> = () => {
   const { searchFormProps } = useTable<ITerminal>({
@@ -24,7 +24,7 @@ export const FilterView: React.FC<IResourceComponentsProps> = () => {
         // "created_at",
       ],
     },
-  });
+  })
 
   return (
     <div>
@@ -32,13 +32,13 @@ export const FilterView: React.FC<IResourceComponentsProps> = () => {
         <Filter formProps={searchFormProps} />
       </Card>
     </div>
-  );
-};
+  )
+}
 
 const Filter: React.FC<{ formProps: FormProps }> = (props) => {
-  const t = useTranslate();
+  const t = useTranslate()
 
-  const { RangePicker } = DatePicker;
+  const { RangePicker } = DatePicker
 
   return (
     <Form layout="vertical" {...props.formProps}>
@@ -71,5 +71,5 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
         </Box>
       </Stack>
     </Form>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons"
 import {
   Accordion,
   AccordionButton,
@@ -8,23 +8,23 @@ import {
   Box,
   Spacer,
   Text,
-} from "@chakra-ui/react";
-import { Dropdown, Form, Input, Menu, Switch } from "@pankod/refine-antd";
-import React, { useState } from "react";
-import { CardListView } from "../../pages/cards/list";
-import { DemoList } from "../../pages/Terminal/demolist";
-import { FilterView } from "../Filter/Filter";
+} from "@chakra-ui/react"
+import { Dropdown, Form, Input, Menu, Switch } from "@pankod/refine-antd"
+import React, { useState } from "react"
+import { CardListView } from "../../pages/cards/list"
+import { DemoList } from "../../pages/Terminal/demolist"
+import { FilterView } from "../Filter/Filter"
 
 function TerminalPage() {
-  const [switchPage, setSwitchPage] = useState(true);
+  const [switchPage, setSwitchPage] = useState(true)
 
   const getpageViwe = (event: any) => {
     if (switchPage == false) {
-      setSwitchPage(true);
+      setSwitchPage(true)
     } else {
-      setSwitchPage(false);
+      setSwitchPage(false)
     }
-  };
+  }
   // const menu = (
   //     <Menu
   //         items={[
@@ -101,7 +101,7 @@ function TerminalPage() {
       </Form>
     </>
     // </div>
-  );
+  )
 }
 
-export default TerminalPage;
+export default TerminalPage

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { IResourceComponentsProps } from "@pankod/refine-core";
+import React, { useState } from "react"
+import { IResourceComponentsProps } from "@pankod/refine-core"
 
-import { Create, Form, Input, useForm } from "@pankod/refine-antd";
+import { Create, Form, Input, useForm } from "@pankod/refine-antd"
 
-import "react-mde/lib/styles/css/react-mde-all.css";
+import "react-mde/lib/styles/css/react-mde-all.css"
 
-import { ITerminal } from "../../interfaces";
+import { ITerminal } from "../../interfaces"
 
 export const PostCreate: React.FC<IResourceComponentsProps> = () => {
-  const { formProps, saveButtonProps } = useForm<ITerminal>();
+  const { formProps, saveButtonProps } = useForm<ITerminal>()
 
   return (
     <Create saveButtonProps={saveButtonProps}>
@@ -60,5 +60,5 @@ export const PostCreate: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
       </Form>
     </Create>
-  );
-};
+  )
+}

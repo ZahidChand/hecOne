@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
-import { useList, useTranslate } from "@pankod/refine-core";
+import { useEffect, useState } from "react"
+import { useList, useTranslate } from "@pankod/refine-core"
 
-import { Button, Space, Skeleton } from "@pankod/refine-antd";
+import { Button, Space, Skeleton } from "@pankod/refine-antd"
 
-import { ITerminal } from "../../interfaces";
+import { ITerminal } from "../../interfaces"
 
 type ProductItemProps = {
-  value?: string[];
-  onChange?: (value: string[]) => void;
-};
+  value?: string[]
+  onChange?: (value: string[]) => void
+}
 
 export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
   onChange,
   value,
 }) => {
-  const t = useTranslate();
+  const t = useTranslate()
 
   const [filterCategories, setFilterCategories] = useState<string[]>(
-    value ?? []
-  );
+    value ?? [],
+  )
 
   useEffect(() => {
     if (filterCategories.length > 0) {
-      onChange?.(filterCategories);
+      onChange?.(filterCategories)
     }
-  }, [filterCategories]);
+  }, [filterCategories])
 
   const { data: categoryData, isLoading: categoryIsLoading } =
     useList<ITerminal>({
@@ -32,7 +32,7 @@ export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
       config: {
         pagination: { pageSize: 30 },
       },
-    });
+    })
 
   // const toggleFilterCategory = (clickedCategory: string) => {
   //     const target = filterTerminal.findIndex(
@@ -64,8 +64,8 @@ export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
         shape="round"
         type={filterCategories.length === 0 ? "primary" : "default"}
         onClick={() => {
-          setFilterCategories([]);
-          onChange?.([]);
+          setFilterCategories([])
+          onChange?.([])
         }}
       >
         {t("stores.all")}
@@ -85,5 +85,5 @@ export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
         </Button>
       ))}
     </Space>
-  );
-};
+  )
+}

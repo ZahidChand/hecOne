@@ -1,4 +1,4 @@
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core";
+import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
 
 import {
   useSimpleList,
@@ -11,8 +11,8 @@ import {
   Dropdown,
   Menu,
   Icons,
-} from "@pankod/refine-antd";
-import { ITerminal } from "../../interfaces";
+} from "@pankod/refine-antd"
+import { ITerminal } from "../../interfaces"
 import {
   Center,
   Grid,
@@ -21,15 +21,15 @@ import {
   Stack,
   Text,
   Wrap,
-} from "@chakra-ui/react";
-import { EyeTwoTone, FormOutlined } from "@ant-design/icons";
+} from "@chakra-ui/react"
+import { EyeTwoTone, FormOutlined } from "@ant-design/icons"
 
 type TerminalItemProps = {
-  item: ITerminal;
-};
+  item: ITerminal
+}
 
 export const CardListView: React.FC<IResourceComponentsProps> = () => {
-  const { show, edit } = useNavigation();
+  const { show, edit } = useNavigation()
 
   const { listProps } = useSimpleList<ITerminal>({
     initialSorter: [
@@ -58,7 +58,7 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
       ],
     },
     pagination: { pageSize: 12, defaultCurrent: 2 },
-  });
+  })
 
   return (
     <>
@@ -219,7 +219,7 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                         <GridItem colSpan={2}>
                           <Center
                             onClick={() => {
-                              show("HecOne_Terminal", terminal?.id);
+                              show("HecOne_Terminal", terminal?.id)
                             }}
                           >
                             <Avatar
@@ -276,7 +276,7 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                                     />
                                   }
                                   onClick={() => {
-                                    edit("HecOne_Terminal", terminal?.id);
+                                    edit("HecOne_Terminal", terminal?.id)
                                   }}
                                 >
                                   {"Edit"}
@@ -334,10 +334,10 @@ export const CardListView: React.FC<IResourceComponentsProps> = () => {
                   </Card>
                 </div>
               </>
-            );
+            )
           })}
         </Row>
       </Form>
     </>
-  );
-};
+  )
+}

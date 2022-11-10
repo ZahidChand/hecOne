@@ -1,5 +1,5 @@
-import React from "react";
-import { HttpError, IResourceComponentsProps } from "@pankod/refine-core";
+import React from "react"
+import { HttpError, IResourceComponentsProps } from "@pankod/refine-core"
 
 import {
   Edit,
@@ -8,10 +8,10 @@ import {
   ListButton,
   RefreshButton,
   useForm,
-} from "@pankod/refine-antd";
-import { ITerminal } from "../../interfaces";
+} from "@pankod/refine-antd"
+import { ITerminal } from "../../interfaces"
 
-import "react-mde/lib/styles/css/react-mde-all.css";
+import "react-mde/lib/styles/css/react-mde-all.css"
 
 export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps, queryResult } = useForm<
@@ -37,7 +37,7 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
         "terminal_zipcode",
       ],
     },
-  });
+  })
 
   return (
     <Edit
@@ -169,5 +169,5 @@ export const TerminalEdit: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
       </Form>
     </Edit>
-  );
-};
+  )
+}

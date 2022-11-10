@@ -1,5 +1,5 @@
-import { IResourceComponentsProps } from "@pankod/refine-core";
-import React from "react";
+import { IResourceComponentsProps } from "@pankod/refine-core"
+import React from "react"
 
 export const ShowFormViewOfNetworkConfig: React.FC<
   IResourceComponentsProps
@@ -8,7 +8,7 @@ export const ShowFormViewOfNetworkConfig: React.FC<
     <>
       <h1>Form view of Network Config</h1>
     </>
-  );
-};
+  )
+}
 
-export default ShowFormViewOfNetworkConfig;
+export default ShowFormViewOfNetworkConfig

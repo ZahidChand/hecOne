@@ -6,12 +6,12 @@ import {
   List,
   Row,
   SaveButton,
-} from "@pankod/refine-antd";
-import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core";
-import React from "react";
+} from "@pankod/refine-antd"
+import { IResourceComponentsProps, useNavigation } from "@pankod/refine-core"
+import React from "react"
 
 export const CreateNetworkCOnfig: React.FC<IResourceComponentsProps> = () => {
-  const { goBack } = useNavigation();
+  const { goBack } = useNavigation()
 
   return (
     <>
@@ -93,7 +93,7 @@ export const CreateNetworkCOnfig: React.FC<IResourceComponentsProps> = () => {
                   <Form.Item>
                     <Button
                       onClick={() => {
-                        goBack();
+                        goBack()
                       }}
                       style={{ cursor: "pointer", width: "50%" }}
                     >
@@ -110,7 +110,7 @@ export const CreateNetworkCOnfig: React.FC<IResourceComponentsProps> = () => {
         </Row>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default CreateNetworkCOnfig;
+export default CreateNetworkCOnfig

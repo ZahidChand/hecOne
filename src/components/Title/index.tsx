@@ -1,14 +1,14 @@
-import { useRouterContext } from "@pankod/refine-core";
-import { Box } from "@pankod/refine-mui";
-import "./style.less";
-import Terminal from "/home/adminrb/MyWorkspace/hecOne/src/components/Terminal/Terminal.jpg";
+import { useRouterContext } from "@pankod/refine-core"
+import { Box } from "@pankod/refine-mui"
+import "./style.less"
+import Terminal from "/home/adminrb/MyWorkspace/hecOne/src/components/Terminal/Terminal.jpg"
 
 type TitleProps = {
-  collapsed: boolean;
-};
+  collapsed: boolean
+}
 
 export const Title: React.FC<TitleProps> = ({ collapsed }) => {
-  const { Link } = useRouterContext();
+  const { Link } = useRouterContext()
   return (
     // <div >
     //     <img style={{ height: "70px", width: "180px" }} src="https://cityline.hectronic.com:49744/baygui/images/hectronic.png" alt="hecone" />
@@ -38,5 +38,5 @@ export const Title: React.FC<TitleProps> = ({ collapsed }) => {
         )}
       </Box>
     </Link>
-  );
-};
+  )
+}

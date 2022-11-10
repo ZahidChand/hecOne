@@ -73,7 +73,7 @@ import {
   Thead,
   Tr,
   useBreakpoint,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 import {
   Avatar,
   Button,
@@ -90,22 +90,22 @@ import {
   Tabs,
   Typography,
   useTable,
-} from "@pankod/refine-antd";
+} from "@pankod/refine-antd"
 import {
   HttpError,
   IResourceComponentsProps,
   useNavigation,
   useShow,
-} from "@pankod/refine-core";
-import { create } from "domain";
-import React, { useState } from "react";
-import Breadcrumb from "../../components/Breadcrumb/breadcrumb";
-import EditNetworkConfig from "../NetworkConfig/editNetworkConfig";
-import EditPrinterConfig from "../PrinterConfig/editPrinterConfig";
+} from "@pankod/refine-core"
+import { create } from "domain"
+import React, { useState } from "react"
+import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
+import EditNetworkConfig from "../NetworkConfig/editNetworkConfig"
+import EditPrinterConfig from "../PrinterConfig/editPrinterConfig"
 // const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
-  const { create } = useNavigation();
+  const { create } = useNavigation()
   // const [ bcrumbName, setBCrumbName] = useState();
   // const { queryResult: terminalQueryResult } = useShow<ITerminal>();
   // const terminal = terminalQueryResult.data?.data;
@@ -235,7 +235,7 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
         </Row>
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default ShowDetailsOfTerminal;
+export default ShowDetailsOfTerminal

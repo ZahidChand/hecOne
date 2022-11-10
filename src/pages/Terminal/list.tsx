@@ -5,7 +5,7 @@ import {
   CrudFilters,
   useTranslate,
   useNavigation,
-} from "@pankod/refine-core";
+} from "@pankod/refine-core"
 
 import {
   Table,
@@ -30,9 +30,9 @@ import {
   DatePicker,
   Icons,
   Card,
-} from "@pankod/refine-antd";
+} from "@pankod/refine-antd"
 
-import { ITerminal } from "../../interfaces";
+import { ITerminal } from "../../interfaces"
 import {
   Box,
   ButtonGroup,
@@ -47,14 +47,14 @@ import {
   Spacer,
   Text,
   useDisclosure,
-} from "@chakra-ui/react";
-import { SearchOutlined } from "@ant-design/icons";
-import { useRef } from "react";
-import { FilterView } from "../../components/Filter/Filter";
-import show from "./show";
-import { color, Link } from "@pankod/refine-mui";
-import "./terminal.css";
-import { text } from "stream/consumers";
+} from "@chakra-ui/react"
+import { SearchOutlined } from "@ant-design/icons"
+import { useRef } from "react"
+import { FilterView } from "../../components/Filter/Filter"
+import show from "./show"
+import { color, Link } from "@pankod/refine-mui"
+import "./terminal.css"
+import { text } from "stream/consumers"
 export const GridListView: React.FC<IResourceComponentsProps> = () => {
   const { tableProps, sorter, searchFormProps } = useTable<ITerminal>({
     initialSorter: [
@@ -82,9 +82,9 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
         "terminal_zipcode",
       ],
     },
-  });
-  const t = useTranslate();
-  const { show } = useNavigation();
+  })
+  const t = useTranslate()
+  const { show } = useNavigation()
 
   return (
     <>
@@ -146,7 +146,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder(
                       "terminalAddress",
-                      sorter
+                      sorter,
                     )}
                   />
 
@@ -156,7 +156,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder(
                       "terminal_street",
-                      sorter
+                      sorter,
                     )}
                   />
 
@@ -166,7 +166,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder(
                       "terminal_city",
-                      sorter
+                      sorter,
                     )}
                   />
 
@@ -176,7 +176,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder(
                       "terminal_state",
-                      sorter
+                      sorter,
                     )}
                   />
 
@@ -224,5 +224,5 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
         </Row>
       </Form>
     </>
-  );
-};
+  )
+}
