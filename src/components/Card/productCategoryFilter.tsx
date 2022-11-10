@@ -6,84 +6,84 @@ import { Button, Space, Skeleton } from "@pankod/refine-antd";
 import { ITerminal } from "../../interfaces";
 
 type ProductItemProps = {
-    value?: string[];
-    onChange?: (value: string[]) => void;
+  value?: string[];
+  onChange?: (value: string[]) => void;
 };
 
 export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
-    onChange,
-    value,
+  onChange,
+  value,
 }) => {
-    const t = useTranslate();
+  const t = useTranslate();
 
-    const [filterCategories, setFilterCategories] = useState<string[]>(
-        value ?? [],
-    );
+  const [filterCategories, setFilterCategories] = useState<string[]>(
+    value ?? []
+  );
 
-    useEffect(() => {
-        if (filterCategories.length > 0) {
-            onChange?.(filterCategories);
-        }
-    }, [filterCategories]);
+  useEffect(() => {
+    if (filterCategories.length > 0) {
+      onChange?.(filterCategories);
+    }
+  }, [filterCategories]);
 
-    const { data: categoryData, isLoading: categoryIsLoading } =
-        useList<ITerminal>({
-            resource: "HecOne_Terminal",
-            config: {
-                pagination: { pageSize: 30 },
-            },
-        });
+  const { data: categoryData, isLoading: categoryIsLoading } =
+    useList<ITerminal>({
+      resource: "HecOne_Terminal",
+      config: {
+        pagination: { pageSize: 30 },
+      },
+    });
 
-    // const toggleFilterCategory = (clickedCategory: string) => {
-    //     const target = filterTerminal.findIndex(
-    //         (HecOne_Terminal) => HecOne_Terminal === clickedTerminal,
-    //     );
+  // const toggleFilterCategory = (clickedCategory: string) => {
+  //     const target = filterTerminal.findIndex(
+  //         (HecOne_Terminal) => HecOne_Terminal === clickedTerminal,
+  //     );
 
-    //     if (target < 0) {
-    //         setFilterCategories((prevCategories) => {
-    //             return [...prevCategories, clickedCategory];
-    //         });
-    //     } else {
-    //         const copyFilterCategories = [...filterCategories];
+  //     if (target < 0) {
+  //         setFilterCategories((prevCategories) => {
+  //             return [...prevCategories, clickedCategory];
+  //         });
+  //     } else {
+  //         const copyFilterCategories = [...filterCategories];
 
-    //         copyFilterCategories.splice(target, 1);
+  //         copyFilterCategories.splice(target, 1);
 
-    //         setFilterCategories(copyFilterCategories);
-    //     }
+  //         setFilterCategories(copyFilterCategories);
+  //     }
 
-    //     onChange?.(filterCategories);
-    // };
+  //     onChange?.(filterCategories);
+  // };
 
-    // if (categoryIsLoading) {
-    //     return <Skeleton active paragraph={{ rows: 6 }} />;
-    // }
+  // if (categoryIsLoading) {
+  //     return <Skeleton active paragraph={{ rows: 6 }} />;
+  // }
 
-    return (
-        <Space wrap>
-            <Button
-                shape="round"
-                type={filterCategories.length === 0 ? "primary" : "default"}
-                onClick={() => {
-                    setFilterCategories([]);
-                    onChange?.([]);
-                }}
-            >
-                {t("stores.all")}
-            </Button>
-            {categoryData?.data.map((category) => (
-                <Button
-                    key={category.id}
-                    shape="round"
-                    type={
-                        filterCategories.includes(category.id.toString())
-                            ? "primary"
-                            : "default"
-                    }
-                    // onClick={() => toggleFilterCategory(category.id.toString())}
-                >
-                    {/* {category.title} */}
-                </Button>
-            ))}
-        </Space>
-    );
+  return (
+    <Space wrap>
+      <Button
+        shape="round"
+        type={filterCategories.length === 0 ? "primary" : "default"}
+        onClick={() => {
+          setFilterCategories([]);
+          onChange?.([]);
+        }}
+      >
+        {t("stores.all")}
+      </Button>
+      {categoryData?.data.map((category) => (
+        <Button
+          key={category.id}
+          shape="round"
+          type={
+            filterCategories.includes(category.id.toString())
+              ? "primary"
+              : "default"
+          }
+          // onClick={() => toggleFilterCategory(category.id.toString())}
+        >
+          {/* {category.title} */}
+        </Button>
+      ))}
+    </Space>
+  );
 };
