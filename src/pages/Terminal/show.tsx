@@ -1,139 +1,22 @@
-// import { useShow, IResourceComponentsProps } from "@pankod/refine-core";
-
-// import {
-//     Show,
-//     Typography,
-//     MarkdownField,
-//     RefreshButton,
-// } from "@pankod/refine-antd";
-
-// import { ITerminal } from "../../interfaces";
-
-// const { Title, Text } = Typography;
-
-// export const TerminalShow: React.FC<IResourceComponentsProps> = () => {
-//     const metaData = {
-//         fields: [
-//             "id",
-//               "name",
-//               "longitude",
-//               "latitude",
-//               "created_at",
-//         ],
-//     };
-
-//     const { queryResult } = useShow<ITerminal>({
-//         metaData,
-//     });
-
-//     const { data, isLoading } = queryResult;
-//     const record = data?.data;
-
-//     return (
-//         <Show
-//             isLoading={isLoading}
-//             pageHeaderProps={{
-//                 extra: (
-//                     <RefreshButton
-//                         onClick={() => {
-//                             queryResult.refetch();
-//                         }}
-//                     />
-//                 ),
-//             }}
-//         >
-//             <Title level={5}>Id</Title>
-//             <Text>{record?.id}</Text>
-
-//             <Title level={5}>Name</Title>
-//             <Text>{record?.name}</Text>
-
-//             <Title level={5}>Longitude</Title>
-//             <Text>{record?.longitude}</Text>
-
-//             <Title level={5}>Latitude</Title>
-//             <Text>{record?.latitude}</Text>
-
-//             <Title level={5}>Terminal Address</Title>
-//             <Text>{record?.terminalAddress}</Text>
-//         </Show>
-//     );
-// };
-
-//****************************************** */
-
-import {
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Tfoot,
-  Th,
-  Thead,
-  Tr,
-  useBreakpoint,
-} from "@chakra-ui/react"
+import { TableContainer } from "@chakra-ui/react"
 import {
   Avatar,
-  Button,
   Card,
   Col,
-  CreateButton,
   Divider,
-  EditButton,
-  Grid,
   Icons,
-  List,
   Row,
   Space,
   Tabs,
   Typography,
-  useTable,
 } from "@pankod/refine-antd"
-import {
-  HttpError,
-  IResourceComponentsProps,
-  useNavigation,
-  useShow,
-} from "@pankod/refine-core"
-import { create } from "domain"
-import React, { useState } from "react"
+import { IResourceComponentsProps } from "@pankod/refine-core"
+import React from "react"
 import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
 import EditNetworkConfig from "../NetworkConfig/editNetworkConfig"
 import EditPrinterConfig from "../PrinterConfig/editPrinterConfig"
-// const { useBreakpoint } = Grid;
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
-  const { create } = useNavigation()
-  // const [ bcrumbName, setBCrumbName] = useState();
-  // const { queryResult: terminalQueryResult } = useShow<ITerminal>();
-  // const terminal = terminalQueryResult.data?.data;
-
-  // const { xl } = useBreakpoint();
-
-  // const { tableProps } = useTable<INetworkConfig, HttpError>({
-  //     resource: " HecOne_Terminal",
-  //     initialSorter: [
-  //         {
-  //             field: "id",
-  //             order: "desc",
-  //         },
-  //     ],
-  //     permanentFilter: [
-  //         {
-  //             field: "HecOne_NetworkConfig.terminal.id",
-  //             operator: "eq",
-  //             value: terminal?.id,
-  //         },
-  //     ],
-  //     initialPageSize: 4,
-  //     queryOptions: {
-  //         enabled: terminal !== undefined,
-  //     },
-  //     syncWithLocation: false,
-  // });
-
   return (
     <>
       <Card bordered={false} style={{ height: "100%" }}>
@@ -203,9 +86,6 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
             type="vertical"
             style={{ height: 260, borderColor: "black" }}
           />
-          {/* <div style={{
-                                        borderLeft: "2px solid black",
-                                    }}></div> */}
           <Col xl={18} xs={24}>
             {/* <Card > */}
             <Tabs defaultActiveKey="1">
