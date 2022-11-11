@@ -77,11 +77,15 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
                   <Input
                     defaultValue={"192.168.0.1"}
-                    style={{ float: "right" }}
+                    style={{
+                      marginBottom: "15px",
+                      marginLeft: "150px",
+                    }}
                   />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
@@ -97,11 +101,16 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
                   <Input
                     defaultValue={"8.5 x 14 inches"}
-                    style={{ float: "right" }}
+                    style={{
+                      marginLeft: "87px",
+                      marginBottom: "15px",
+                      width: "130%",
+                    }}
                   />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>

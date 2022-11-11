@@ -84,7 +84,7 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
           </Col>
           <Divider
             type="vertical"
-            style={{ height: 260, borderColor: "black" }}
+            style={{ height: 460, borderColor: "black" }}
           />
           <Col xl={18} xs={24}>
             {/* <Card > */}

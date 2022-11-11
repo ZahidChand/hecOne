@@ -76,9 +76,13 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
-                  <Input defaultValue={"User1"} style={{ float: "right" }} />
+                  <Input
+                    defaultValue={"User1"}
+                    style={{ float: "right", marginBottom: "15px" }}
+                  />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
                     User1
@@ -93,9 +97,13 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
-                  <Input defaultValue={"1234"} style={{ float: "right" }} />
+                  <Input
+                    defaultValue={"1234"}
+                    style={{ float: "right", marginBottom: "15px" }}
+                  />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
                     1234
@@ -110,11 +118,12 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
                   <Input
                     defaultValue={"sr1.host1.com"}
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginBottom: "15px" }}
                   />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
@@ -130,11 +139,12 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
                   <Input
                     defaultValue={"serverProtocol1"}
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginBottom: "15px" }}
                   />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
@@ -151,11 +161,12 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
                     required: true,
                   },
                 ]}
+                style={{ marginBlock: "auto" }}
               >
                 {isEditMode ? (
                   <Input
                     defaultValue={"abdcefghi"}
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginBottom: "15px" }}
                   />
                 ) : (
                   <Text style={{ float: "right", marginTop: "10px" }}>
