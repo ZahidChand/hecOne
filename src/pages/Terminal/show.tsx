@@ -1,15 +1,5 @@
 import { TableContainer } from "@chakra-ui/react"
-import {
-  Avatar,
-  Card,
-  Col,
-  Divider,
-  Icons,
-  Row,
-  Space,
-  Tabs,
-  Typography,
-} from "@pankod/refine-antd"
+import { Avatar, Card, Col, Icons, Tabs, Typography } from "@pankod/refine-antd"
 import { IResourceComponentsProps } from "@pankod/refine-core"
 import React from "react"
 import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
@@ -20,72 +10,67 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
   return (
     <>
       <Card bordered={false} style={{ height: "100%" }}>
-        <div>
+        <div className="border-b-2 pb-6" style={{ borderBottomColor: "#ccc" }}>
           <Breadcrumb />
         </div>
-        <Row>
+        <div className="w-full flex mt-6 max-h-full">
           <Col xl={5} lg={24} xs={24}>
-            <Space
-              direction="vertical"
-              style={{ width: "100%", height: "100%" }}
-            >
-              <Space
-                direction="vertical"
-                style={{ textAlign: "center", width: "100%" }}
-              >
-                <Avatar
-                  size={120}
-                  src={
-                    "https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"
-                  }
-                ></Avatar>
-                <Typography.Title level={5}>Terminal_#12311</Typography.Title>
-              </Space>
-              <Space
-                direction="vertical"
+            <div style={{ width: "100%", height: "100%" }}>
+              <Avatar
+                size={120}
+                src={
+                  "https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"
+                }
+              ></Avatar>
+              <Typography.Title level={5}>Terminal_#12311</Typography.Title>
+
+              <div
                 style={{
                   width: "100%",
                   // textAlign: xl ? "unset" : "center",
                 }}
               >
-                <Typography.Text>
-                  <Icons.DeploymentUnitOutlined />
-                  <b>{" Type : "}</b>
-                  Liquefaction
-                </Typography.Text>
-
-                <Typography.Text>
-                  <Icons.HomeOutlined />
-                  <b>{" Station : "}</b>
-                  Station131
-                </Typography.Text>
-
-                <Typography.Text>
-                  <Icons.DashboardOutlined />
-                  <b>{" Status : "}</b>
-                  Active
-                </Typography.Text>
-
-                <Typography.Text>
-                  <Icons.LaptopOutlined />
-                  <b>{" Device : "}</b>
-                  1256
-                </Typography.Text>
-
-                <Typography.Text>
-                  <Icons.HomeOutlined />
-                  <b>{" Address : "}</b>
-                  TerminalAddress1234, Eichendorffstr. 13, Allensbach,
-                  Baden-Württemberg
-                </Typography.Text>
-              </Space>
-            </Space>
+                <div>
+                  <Typography.Text>
+                    <Icons.DeploymentUnitOutlined />
+                    <b>{" Type : "}</b>
+                    Liquefaction
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text>
+                    <Icons.HomeOutlined />
+                    <b>{" Station : "}</b>
+                    Station131
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text>
+                    <Icons.DashboardOutlined />
+                    <b>{" Status : "}</b>
+                    Active
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text>
+                    <Icons.LaptopOutlined />
+                    <b>{" Device : "}</b>
+                    1256
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text>
+                    <Icons.HomeOutlined />
+                    <b>{" Address : "}</b>
+                    TerminalAddress1234, Eichendorffstr. 13, Allensbach,
+                    Baden-Württemberg
+                  </Typography.Text>
+                </div>
+              </div>
+            </div>
             {/* </Card> */}
           </Col>
-          <Divider
-            type="vertical"
-            style={{ height: 460, borderColor: "black" }}
-          />
+
           <Col xl={18} xs={24}>
             {/* <Card > */}
             <Tabs defaultActiveKey="1">
@@ -112,7 +97,7 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
               </Tabs.TabPane>
             </Tabs>
           </Col>
-        </Row>
+        </div>
       </Card>
     </>
   )
