@@ -1,11 +1,20 @@
+import { useNavigation } from "@pankod/refine-core"
 import { Breadcrumb } from "antd"
 import React from "react"
+import { DemoList } from "../../pages/Terminal/demolist"
 
 const App: React.FC = () => {
+  const { list } = useNavigation()
   return (
     <Breadcrumb>
       <Breadcrumb.Item>
-        <a href="/HecOne_Terminal" onClick={() => {}}>
+        <a
+          href="#"
+          onClick={(_) => {
+            _.preventDefault()
+            list("HecOne_Terminal")
+          }}
+        >
           Terminal
         </a>
       </Breadcrumb.Item>
@@ -17,3 +26,6 @@ const App: React.FC = () => {
 }
 
 export default App
+{
+  /* <a href="/HecOne_Terminal" onClick={() => {}}> */
+}
