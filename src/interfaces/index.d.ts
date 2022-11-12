@@ -1,9 +1,9 @@
 export interface ITerminal {
-  id: id
-  name: name
-  longitude: longitude
-  latitude: latitude
-  created_at: created_at
+  id: string
+  name: string
+  longitude: string
+  latitude: string
+  created_at: string
   deviceId: number
   station: string
   created_by: string
@@ -20,12 +20,12 @@ export interface INetworkConfig {
   id: id
   name: name
   keys: keys[]
-  serverHost: any
-  serverPort: any
-  serverProtocol: any
-  userName: any
-  password: any
-  updated_at: updated_at
-  created_at: created_at
-  terminalid: ITerminal
+  serverHost: string
+  serverPort: string
+  serverProtocol: string
+  userName: string
+  password: string
+  updated_at: string
+  created_at: string
+  terminalid: string
 }
