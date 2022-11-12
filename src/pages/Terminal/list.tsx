@@ -1,3 +1,4 @@
+import React from "react"
 import { IResourceComponentsProps } from "@pankod/refine-core"
 import {
   Table,

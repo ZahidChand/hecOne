@@ -1,3 +1,4 @@
+import React from "react"
 import { SearchOutlined } from "@ant-design/icons"
 import { Box, Text } from "@chakra-ui/react"
 import { Button, Dropdown, Form, Input } from "@pankod/refine-antd"
@@ -31,12 +32,12 @@ function TerminalPage() {
                 borderRadius: "5px",
                 cursor: "pointer",
               }}
-              onClick={(_) => setGridView(false)}
+              onClick={() => setGridView(false)}
             >
               <FaListUl />
             </div>
             <div
-              onClick={(_) => setGridView(true)}
+              onClick={() => setGridView(true)}
               style={{
                 backgroundColor: gridView ? "white" : "transparent",
                 padding: "5px 10px",

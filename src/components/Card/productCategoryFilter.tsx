@@ -1,7 +1,8 @@
+import React from "react"
 import { useEffect, useState } from "react"
 import { useList, useTranslate } from "@pankod/refine-core"
 
-import { Button, Space, Skeleton } from "@pankod/refine-antd"
+import { Button, Space } from "@pankod/refine-antd"
 
 import { ITerminal } from "../../interfaces"
 
@@ -26,37 +27,12 @@ export const ProductCategoryFilter: React.FC<ProductItemProps> = ({
     }
   }, [filterCategories])
 
-  const { data: categoryData, isLoading: categoryIsLoading } =
-    useList<ITerminal>({
-      resource: "HecOne_Terminal",
-      config: {
-        pagination: { pageSize: 30 },
-      },
-    })
-
-  // const toggleFilterCategory = (clickedCategory: string) => {
-  //     const target = filterTerminal.findIndex(
-  //         (HecOne_Terminal) => HecOne_Terminal === clickedTerminal,
-  //     );
-
-  //     if (target < 0) {
-  //         setFilterCategories((prevCategories) => {
-  //             return [...prevCategories, clickedCategory];
-  //         });
-  //     } else {
-  //         const copyFilterCategories = [...filterCategories];
-
-  //         copyFilterCategories.splice(target, 1);
-
-  //         setFilterCategories(copyFilterCategories);
-  //     }
-
-  //     onChange?.(filterCategories);
-  // };
-
-  // if (categoryIsLoading) {
-  //     return <Skeleton active paragraph={{ rows: 6 }} />;
-  // }
+  const { data: categoryData } = useList<ITerminal>({
+    resource: "HecOne_Terminal",
+    config: {
+      pagination: { pageSize: 30 },
+    },
+  })
 
   return (
     <Space wrap>

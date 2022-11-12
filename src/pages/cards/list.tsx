@@ -1,3 +1,4 @@
+import React from "react"
 import { useNavigation } from "@pankod/refine-core"
 
 import {
@@ -67,7 +68,10 @@ export const CardListView: React.FC = () => {
           >
             {listProps?.dataSource?.map((terminal) => {
               return (
-                <div style={{ flex: "0 0 33%", width: "100%", padding: "5px" }}>
+                <div
+                  style={{ flex: "0 0 33%", width: "100%", padding: "5px" }}
+                  key={terminal.id}
+                >
                   <Card>
                     <div key={terminal?.id}>
                       <Grid templateColumns="repeat(10, 1fr)" mt={3} mb={3}>
