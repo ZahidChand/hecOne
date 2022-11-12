@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <Breadcrumb>
       <Breadcrumb.Item>
         <a
-          href="#"
+          href="/"
           onClick={(_) => {
             _.preventDefault()
             list("HecOne_Terminal")
@@ -18,7 +18,9 @@ const App: React.FC = () => {
         </a>
       </Breadcrumb.Item>
       <Breadcrumb.Item>
-        <a href={`/HecOne_Terminal/show/id`}>Details</a>
+        <a href="/" onClick={(_) => _.preventDefault()}>
+          Details
+        </a>
       </Breadcrumb.Item>
     </Breadcrumb>
   )
