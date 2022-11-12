@@ -1,14 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons"
-import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  Text,
-} from "@chakra-ui/react"
-import { Form, Input } from "@pankod/refine-antd"
+import { Box, Text } from "@chakra-ui/react"
+import { Button, Dropdown, Form, Input } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
 import { DemoList } from "../../pages/Terminal/demolist"
@@ -66,27 +58,21 @@ function TerminalPage() {
               suffix={<SearchOutlined />}
             />
           </Form.Item>
-          <div style={{ margin: "0 5px" }}>
-            <Accordion allowToggle style={{ borderRadius: "10px" }}>
-              <AccordionItem>
-                <h4>
-                  <AccordionButton
-                    width="300px"
-                    backgroundColor="white"
-                    border="1px solid grey"
-                  >
-                    <Box flex="1" textAlign="left" fontSize="md">
-                      Filters
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h4>
-                <AccordionPanel pb={4}>
-                  <FilterView />
-                </AccordionPanel>
-              </AccordionItem>
-            </Accordion>
-          </div>
+          <Dropdown overlay={<FilterView />} trigger={["click"]}>
+            <h4>
+              <Button
+                style={{
+                  width: "300px",
+                  backgroundColor: "white",
+                  border: "1px solid grey",
+                }}
+              >
+                <Box flex="1" textAlign="left" fontSize="md">
+                  Filters
+                </Box>
+              </Button>
+            </h4>
+          </Dropdown>
         </div>
       </div>
 

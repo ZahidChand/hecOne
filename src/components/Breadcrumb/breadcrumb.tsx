@@ -12,10 +12,6 @@ const App: React.FC = () => {
       <Breadcrumb.Item>
         <a href={`/HecOne_Terminal/show/id`}>Details</a>
       </Breadcrumb.Item>
-      {/* <Breadcrumb.Item>
-      <a href={`${process.env.REACT_APP_API}/HecOne_Terminal/edit/id`}>Edit</a>
-    </Breadcrumb.Item> */}
-      {/* <Breadcrumb.Item>An Application</Breadcrumb.Item> */}
     </Breadcrumb>
   )
 }
