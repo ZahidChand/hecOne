@@ -8,12 +8,12 @@ import EditPrinterConfig from "../PrinterConfig/editPrinterConfig"
 
 export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
   return (
-    <Card bordered={false} style={{ height: "100%" }}>
-      <div className="border-b-2 pb-6" style={{ borderBottomColor: "#ccc" }}>
+    <Card bordered={false} className="h-full">
+      <div className="border-b-2 pb-6 border-b-gray-300">
         <Breadcrumb />
       </div>
       <div className="w-full flex mt-6 max-h-full">
-        <div className="w-3/12 border-r-2 p-2 " style={{ borderColor: "#ccc" }}>
+        <div className="w-3/12 border-r-2 p-2 border-gray-300">
           <div className="flex flex-col items-center">
             <Avatar
               size={120}
@@ -62,17 +62,20 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
               </div>
             </div>
           </div>
-          {/* </Card> */}
         </div>
 
-        <div className="w-8/12 p-2 m-auto flex flex-col justify-start">
-          <Tabs defaultActiveKey="1">
+        <div className="w-8/12 p-2 mx-auto flex flex-col justify-start h-full min-h-6/12">
+          <Tabs defaultActiveKey="1" className="h-full">
             <Tabs.TabPane tab="Network Configurations" key="1">
               <TableContainer>
                 <EditNetworkConfig />
               </TableContainer>
             </Tabs.TabPane>
-            <Tabs.TabPane tab="Printer Configurations" key="2">
+            <Tabs.TabPane
+              tab="Printer Configurations"
+              key="2"
+              className="h-full"
+            >
               <TableContainer>
                 <EditPrinterConfig />
               </TableContainer>
