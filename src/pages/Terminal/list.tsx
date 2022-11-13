@@ -32,7 +32,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
         "longitude",
         "latitude",
         "created_at",
-        "device_id",
+        "deviceId",
         "station",
         "created_by",
         "type",
@@ -57,17 +57,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
           <div>
             <Col xl={18} xs={24}>
               <List>
-                <Table
-                  {...tableProps}
-                  rowKey="id"
-                  // onRow={(record) => {
-                  //     return {
-                  //         onClick: () => {
-                  //             show("HecOne_Terminal", record?.id)
-                  //         },
-                  //     };
-                  // }}
-                >
+                <Table {...tableProps} rowKey="id">
                   <Table.Column
                     className="link-css"
                     dataIndex="name"
@@ -94,9 +84,9 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                     sorter
                   />
                   <Table.Column
-                    dataIndex="device_id"
+                    dataIndex="deviceId"
                     title="Device Id"
-                    defaultSortOrder={getDefaultSortOrder("device_id", sorter)}
+                    defaultSortOrder={getDefaultSortOrder("deviceId", sorter)}
                     sorter
                   />
 
@@ -166,7 +156,7 @@ export const GridListView: React.FC<IResourceComponentsProps> = () => {
                               "longitude",
                               "latitude",
                               "created_at",
-                              "device_id",
+                              "deviceId",
                               "terminalAddress",
                               "terminal_street",
                               "terminal_city",

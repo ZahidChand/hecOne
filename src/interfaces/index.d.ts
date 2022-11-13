@@ -4,7 +4,7 @@ export interface ITerminal {
   longitude: string
   latitude: string
   created_at: string
-  deviceId: number
+  device_id: number
   station: string
   created_by: string
   type: string
