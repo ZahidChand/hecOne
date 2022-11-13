@@ -1,7 +1,7 @@
 import React from "react"
 import { SearchOutlined } from "@ant-design/icons"
-import { Box, Text } from "@chakra-ui/react"
-import { Button, Dropdown, Form, Input } from "@pankod/refine-antd"
+import { Text } from "@chakra-ui/react"
+import { Dropdown, Form, Input } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
 import { DemoList } from "../../pages/Terminal/demolist"
@@ -60,19 +60,9 @@ function TerminalPage() {
             />
           </Form.Item>
           <Dropdown overlay={<FilterView />} trigger={["click"]}>
-            <h4>
-              <Button
-                style={{
-                  width: "300px",
-                  backgroundColor: "white",
-                  border: "1px solid grey",
-                }}
-              >
-                <Box flex="1" textAlign="left" fontSize="md">
-                  Filters
-                </Box>
-              </Button>
-            </h4>
+            <div className="rounded-md border-gray-300 m-auto h-8 w-64 flex items-center pl-2 bg-white border-2">
+              Filters
+            </div>
           </Dropdown>
         </div>
       </div>
