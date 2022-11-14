@@ -1,7 +1,6 @@
 import React from "react"
 import {
   Table,
-  useTable,
   FilterDropdown,
   Select,
   ShowButton,
@@ -10,39 +9,16 @@ import {
   EditButton,
   Space,
   Card,
+  TableProps,
 } from "@pankod/refine-antd"
 
 import { ITerminal } from "../../interfaces"
+import { CrudSorting } from "@pankod/refine-core"
 
-export const DemoList: React.FC = () => {
-  const { tableProps, sorter } = useTable<ITerminal>({
-    initialSorter: [
-      {
-        field: "name",
-        order: "asc",
-      },
-    ],
-    metaData: {
-      fields: [
-        "id",
-        "name",
-        "longitude",
-        "latitude",
-        "created_at",
-        "device_id",
-        "station",
-        "created_by",
-        "type",
-        "status",
-        "terminalAddress",
-        "terminal_street",
-        "terminal_city",
-        "terminal_state",
-        "terminal_zipcode",
-      ],
-    },
-  })
-
+export const DemoList: React.FC<{
+  tableProps: TableProps<ITerminal>
+  sorter: CrudSorting | undefined
+}> = ({ tableProps, sorter }) => {
   return (
     <Card>
       <Table {...tableProps} rowKey="id" style={{ cursor: "pointer" }}>

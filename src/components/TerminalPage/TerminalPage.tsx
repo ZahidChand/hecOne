@@ -1,15 +1,77 @@
 import React from "react"
 import { SearchOutlined } from "@ant-design/icons"
 import { Text } from "@chakra-ui/react"
-import { Dropdown, Form, Input } from "@pankod/refine-antd"
+import {
+  Dropdown,
+  Form,
+  Input,
+  useSimpleList,
+  useTable,
+} from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
 import { DemoList } from "../../pages/Terminal/demolist"
 import { FilterView } from "../Filter/Filter"
 import { FaListUl, FaTh } from "react-icons/fa"
+import { ITerminal } from "../../interfaces"
 
 function TerminalPage() {
   const [gridView, setGridView] = useState<boolean>(false)
+  const { listProps } = useSimpleList<ITerminal>({
+    initialSorter: [
+      {
+        field: "name",
+        order: "asc",
+      },
+    ],
+    metaData: {
+      fields: [
+        "id",
+        "name",
+        "longitude",
+        "latitude",
+        "created_at",
+        "device_id",
+        "station",
+        "created_by",
+        "type",
+        "status",
+        "terminalAddress",
+        "terminal_street",
+        "terminal_city",
+        "terminal_state",
+        "terminal_zipcode",
+      ],
+    },
+    pagination: { pageSize: 12, defaultCurrent: 2 },
+  })
+  const { tableProps, sorter } = useTable<ITerminal>({
+    initialSorter: [
+      {
+        field: "name",
+        order: "asc",
+      },
+    ],
+    metaData: {
+      fields: [
+        "id",
+        "name",
+        "longitude",
+        "latitude",
+        "created_at",
+        "device_id",
+        "station",
+        "created_by",
+        "type",
+        "status",
+        "terminalAddress",
+        "terminal_street",
+        "terminal_city",
+        "terminal_state",
+        "terminal_zipcode",
+      ],
+    },
+  })
 
   return (
     <Form>
@@ -67,7 +129,13 @@ function TerminalPage() {
         </div>
       </div>
 
-      <div>{!gridView ? <DemoList /> : <CardListView />}</div>
+      <div>
+        {!gridView ? (
+          <DemoList tableProps={tableProps} sorter={sorter} />
+        ) : (
+          <CardListView listProps={listProps} />
+        )}
+      </div>
     </Form>
   )
 }
