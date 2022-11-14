@@ -10,12 +10,12 @@ import dataProvider, { GraphQLClient } from "@pankod/refine-hasura"
 import "@pankod/refine-antd/dist/styles.min.css"
 import { Title } from "./components/Title"
 import TerminalPage from "./components/TerminalPage/TerminalPage"
-import { ShowDetailsOfTerminal } from "./pages/Terminal/show"
-import { FilterView } from "./components/Filter/Filter"
+import { TerminalDetails } from "./pages/Terminal/show"
+import { FilterTerminal } from "./components/Filter/filter-terminal"
 import EditNetworkConfig from "./pages/NetworkConfig/editNetworkConfig"
 import CreateNetworkCOnfig from "./pages/NetworkConfig/createTerminal"
-import { TerminalEdit } from "./pages/Terminal"
 import EditPrinterConfig from "./pages/PrinterConfig/editPrinterConfig"
+import { TerminalEdit } from "./pages/Terminal/edit-terminal"
 
 const API_URL = `${process.env.REACT_APP_API}/v1/graphql`
 
@@ -37,12 +37,12 @@ const App: React.FC = () => {
         {
           name: "HecOne_Terminal",
           list: TerminalPage,
-          show: ShowDetailsOfTerminal,
+          show: TerminalDetails,
           edit: TerminalEdit,
         },
         {
           name: "HecOne_Terminal",
-          list: FilterView,
+          list: FilterTerminal,
         },
         {
           name: "HecOne_PrinterConfig",

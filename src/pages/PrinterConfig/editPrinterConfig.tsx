@@ -17,112 +17,109 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
   }
 
   return (
-    <>
-      <Form
-        // {...formProps}
-        className="ant-advanced-search-form"
-        layout="horizontal"
-        initialValues={{
-          isActive: true,
-        }}
-      >
-        <div style={{ padding: "10px" }}>
-          <Row>
-            <Col style={{ marginInlineStart: "80%" }}>
-              {isEditMode ? (
-                <Flex
-                  gap={16}
-                  style={{
-                    cursor: "pointer",
-                    float: "right",
-                    fontSize: "20px",
-                  }}
-                >
-                  <Flex>
-                    <CheckOutlined
-                      onClick={() => {
-                        CancelEdit()
-                      }}
-                    />
-                    <Spacer />
-                  </Flex>
-
-                  <CloseOutlined
+    <Form
+      className="ant-advanced-search-form"
+      layout="horizontal"
+      initialValues={{
+        isActive: true,
+      }}
+    >
+      <div style={{ padding: "10px" }}>
+        <Row>
+          <Col style={{ marginInlineStart: "80%" }}>
+            {isEditMode ? (
+              <Flex
+                gap={16}
+                style={{
+                  cursor: "pointer",
+                  float: "right",
+                  fontSize: "20px",
+                }}
+              >
+                <Flex>
+                  <CheckOutlined
                     onClick={() => {
                       CancelEdit()
                     }}
                   />
+                  <Spacer />
                 </Flex>
-              ) : (
-                <FormOutlined
-                  style={{
-                    cursor: "pointer",
-                    float: "right",
-                    fontSize: "20px",
-                  }}
+
+                <CloseOutlined
                   onClick={() => {
-                    editPerform()
+                    CancelEdit()
                   }}
                 />
+              </Flex>
+            ) : (
+              <FormOutlined
+                style={{
+                  cursor: "pointer",
+                  float: "right",
+                  fontSize: "20px",
+                }}
+                onClick={() => {
+                  editPerform()
+                }}
+              />
+            )}
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ width: "50%" }}>
+            <Form.Item
+              label={"Printer IP"}
+              name="printerIP"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              style={{ marginBlock: "auto" }}
+            >
+              {isEditMode ? (
+                <Input
+                  defaultValue={"192.168.0.1"}
+                  style={{
+                    marginBottom: "15px",
+                    marginLeft: "150px",
+                  }}
+                />
+              ) : (
+                <Text style={{ float: "right", marginTop: "10px" }}>
+                  192.168.0.1
+                </Text>
               )}
-            </Col>
-          </Row>
-          <Row>
-            <Col style={{ width: "50%" }}>
-              <Form.Item
-                label={"Printer IP"}
-                name="printerIP"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
-                style={{ marginBlock: "auto" }}
-              >
-                {isEditMode ? (
-                  <Input
-                    defaultValue={"192.168.0.1"}
-                    style={{
-                      marginBottom: "15px",
-                      marginLeft: "150px",
-                    }}
-                  />
-                ) : (
-                  <Text style={{ float: "right", marginTop: "10px" }}>
-                    192.168.0.1
-                  </Text>
-                )}
-              </Form.Item>
-              <Form.Item
-                label={"Printer Paper Size"}
-                name="printerPaperSize"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
-                style={{ marginBlock: "auto" }}
-              >
-                {isEditMode ? (
-                  <Input
-                    defaultValue={"8.5 x 14 inches"}
-                    style={{
-                      marginLeft: "87px",
-                      marginBottom: "15px",
-                      width: "130%",
-                    }}
-                  />
-                ) : (
-                  <Text style={{ float: "right", marginTop: "10px" }}>
-                    8.5 × 14 inches
-                  </Text>
-                )}
-              </Form.Item>
-            </Col>
-          </Row>
-        </div>
-      </Form>
-    </>
+            </Form.Item>
+            <Form.Item
+              label={"Printer Paper Size"}
+              name="printerPaperSize"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              style={{ marginBlock: "auto" }}
+            >
+              {isEditMode ? (
+                <Input
+                  defaultValue={"8.5 x 14 inches"}
+                  style={{
+                    marginLeft: "87px",
+                    marginBottom: "15px",
+                    width: "130%",
+                  }}
+                />
+              ) : (
+                <Text style={{ float: "right", marginTop: "10px" }}>
+                  8.5 × 14 inches
+                </Text>
+              )}
+            </Form.Item>
+          </Col>
+        </Row>
+      </div>
+    </Form>
   )
 }
 

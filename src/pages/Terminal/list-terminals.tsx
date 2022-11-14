@@ -15,7 +15,7 @@ import {
 import { ITerminal } from "../../interfaces"
 import { CrudSorting } from "@pankod/refine-core"
 
-export const DemoList: React.FC<{
+export const ListTerminals: React.FC<{
   tableProps: TableProps<ITerminal>
   sorter: CrudSorting | undefined
 }> = ({ tableProps, sorter }) => {

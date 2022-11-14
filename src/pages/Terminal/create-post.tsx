@@ -7,7 +7,7 @@ import "react-mde/lib/styles/css/react-mde-all.css"
 
 import { ITerminal } from "../../interfaces"
 
-export const PostCreate: React.FC<IResourceComponentsProps> = () => {
+export const CreatePost: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm<ITerminal>()
 
   return (

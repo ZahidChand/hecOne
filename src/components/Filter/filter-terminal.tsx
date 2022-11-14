@@ -7,7 +7,7 @@ import { ITerminal } from "../../interfaces"
 import { Form } from "@pankod/refine-antd"
 import { Box, Stack } from "@chakra-ui/react"
 
-export const FilterView: React.FC<IResourceComponentsProps> = () => {
+export const FilterTerminal: React.FC<IResourceComponentsProps> = () => {
   const { searchFormProps } = useTable<ITerminal>({
     initialSorter: [
       {
@@ -56,11 +56,7 @@ const Filter: React.FC<{ formProps: FormProps }> = (props) => {
         </Box>
         <Box>
           <Form.Item>
-            <Button
-              style={{ width: "100%" }}
-              // htmlType="submit"
-              type="primary"
-            >
+            <Button style={{ width: "100%" }} type="primary">
               Submit
             </Button>
           </Form.Item>

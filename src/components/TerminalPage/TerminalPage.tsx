@@ -10,10 +10,10 @@ import {
 } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
-import { DemoList } from "../../pages/Terminal/demolist"
-import { FilterView } from "../Filter/Filter"
+import { FilterTerminal } from "../Filter/filter-terminal"
 import { FaListUl, FaTh } from "react-icons/fa"
 import { ITerminal } from "../../interfaces"
+import { ListTerminals } from "../../pages/Terminal/list-terminals"
 
 function TerminalPage() {
   const [gridView, setGridView] = useState<boolean>(false)
@@ -121,7 +121,7 @@ function TerminalPage() {
               suffix={<SearchOutlined />}
             />
           </Form.Item>
-          <Dropdown overlay={<FilterView />} trigger={["click"]}>
+          <Dropdown overlay={<FilterTerminal />} trigger={["click"]}>
             <div className="rounded-md border-gray-300 m-auto h-8 w-64 flex items-center pl-2 bg-white border-2">
               Filters
             </div>
@@ -131,7 +131,7 @@ function TerminalPage() {
 
       <div>
         {!gridView ? (
-          <DemoList tableProps={tableProps} sorter={sorter} />
+          <ListTerminals tableProps={tableProps} sorter={sorter} />
         ) : (
           <CardListView listProps={listProps} />
         )}

@@ -1,12 +1,11 @@
 import { TableContainer } from "@chakra-ui/react"
 import { Avatar, Card, Icons, Tabs, Typography } from "@pankod/refine-antd"
-import { IResourceComponentsProps } from "@pankod/refine-core"
 import React from "react"
 import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
 import EditNetworkConfig from "../NetworkConfig/editNetworkConfig"
 import EditPrinterConfig from "../PrinterConfig/editPrinterConfig"
 
-export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
+export const TerminalDetails: React.FC = () => {
   return (
     <Card bordered={false} className="h-full">
       <div className="border-b-2 pb-6 border-b-gray-300">
@@ -97,5 +96,3 @@ export const ShowDetailsOfTerminal: React.FC<IResourceComponentsProps> = () => {
     </Card>
   )
 }
-
-export default ShowDetailsOfTerminal
