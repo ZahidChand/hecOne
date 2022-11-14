@@ -1,15 +1,15 @@
 import { TableContainer } from "@chakra-ui/react"
 import { Avatar, Card, Icons, Tabs, Typography } from "@pankod/refine-antd"
 import React from "react"
-import Breadcrumb from "../../components/Breadcrumb/breadcrumb"
-import EditNetworkConfig from "../NetworkConfig/editNetworkConfig"
-import EditPrinterConfig from "../PrinterConfig/editPrinterConfig"
+import { DetailsBreadcrumb } from "../../components/Breadcrumb/breadcrumb"
+import { EditNetworkConfig } from "../NetworkConfig/edit-network-config"
+import { EditPrinterConfig } from "../PrinterConfig/editPrinterConfig"
 
 export const TerminalDetails: React.FC = () => {
   return (
     <Card bordered={false} className="h-full">
       <div className="border-b-2 pb-6 border-b-gray-300">
-        <Breadcrumb />
+        <DetailsBreadcrumb />
       </div>
       <div className="w-full flex mt-6 max-h-full">
         <div className="w-3/12 border-r-2 p-2 border-gray-300">

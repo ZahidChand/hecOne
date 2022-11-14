@@ -8,14 +8,6 @@ import "../NetworkConfig/editNetwork.css"
 export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
   const [isEditMode, setIsEditMode] = useState(false)
 
-  const editPerform = () => {
-    setIsEditMode(true)
-  }
-
-  const CancelEdit = () => {
-    setIsEditMode(false)
-  }
-
   return (
     <Form
       className="ant-advanced-search-form"
@@ -39,7 +31,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                 <Flex>
                   <CheckOutlined
                     onClick={() => {
-                      CancelEdit()
+                      setIsEditMode(false)
                     }}
                   />
                   <Spacer />
@@ -47,7 +39,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
 
                 <CloseOutlined
                   onClick={() => {
-                    CancelEdit()
+                    setIsEditMode(false)
                   }}
                 />
               </Flex>
@@ -58,9 +50,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                   float: "right",
                   fontSize: "20px",
                 }}
-                onClick={() => {
-                  editPerform()
-                }}
+                onClick={() => setIsEditMode(true)}
               />
             )}
           </Col>
@@ -122,5 +112,3 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
     </Form>
   )
 }
-
-export default EditPrinterConfig

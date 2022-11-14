@@ -2,7 +2,7 @@ import { useNavigation } from "@pankod/refine-core"
 import { Breadcrumb } from "antd"
 import React from "react"
 
-const App: React.FC = () => {
+export const DetailsBreadcrumb: React.FC = () => {
   const { list } = useNavigation()
   return (
     <Breadcrumb>
@@ -25,5 +25,3 @@ const App: React.FC = () => {
     </Breadcrumb>
   )
 }
-
-export default App

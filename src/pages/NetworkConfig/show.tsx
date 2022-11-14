@@ -10,5 +10,3 @@ export const ShowFormViewOfNetworkConfig: React.FC<
     </>
   )
 }
-
-export default ShowFormViewOfNetworkConfig

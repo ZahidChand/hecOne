@@ -8,5 +8,3 @@ export const listNetworkConfig: React.FC<IResourceComponentsProps> = () => {
     </>
   )
 }
-
-export default listNetworkConfig

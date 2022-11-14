@@ -112,5 +112,3 @@ export const CreateNetworkCOnfig: React.FC<IResourceComponentsProps> = () => {
     </>
   )
 }
-
-export default CreateNetworkCOnfig

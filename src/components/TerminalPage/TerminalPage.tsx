@@ -15,7 +15,7 @@ import { FaListUl, FaTh } from "react-icons/fa"
 import { ITerminal } from "../../interfaces"
 import { ListTerminals } from "../../pages/Terminal/list-terminals"
 
-function TerminalPage() {
+export const TerminalPage = () => {
   const [gridView, setGridView] = useState<boolean>(false)
   const { listProps } = useSimpleList<ITerminal>({
     initialSorter: [
@@ -139,5 +139,3 @@ function TerminalPage() {
     </Form>
   )
 }
-
-export default TerminalPage

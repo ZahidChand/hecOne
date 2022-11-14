@@ -182,5 +182,3 @@ export const EditNetworkConfig: React.FC<IResourceComponentsProps> = () => {
     </>
   )
 }
-
-export default EditNetworkConfig

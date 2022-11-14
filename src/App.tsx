@@ -9,13 +9,13 @@ import routerProvider from "@pankod/refine-react-router-v6"
 import dataProvider, { GraphQLClient } from "@pankod/refine-hasura"
 import "@pankod/refine-antd/dist/styles.min.css"
 import { Title } from "./components/Title"
-import TerminalPage from "./components/TerminalPage/TerminalPage"
+import { TerminalPage } from "./components/TerminalPage/TerminalPage"
 import { TerminalDetails } from "./pages/Terminal/show"
 import { FilterTerminal } from "./components/Filter/filter-terminal"
-import EditNetworkConfig from "./pages/NetworkConfig/editNetworkConfig"
-import CreateNetworkCOnfig from "./pages/NetworkConfig/createTerminal"
-import EditPrinterConfig from "./pages/PrinterConfig/editPrinterConfig"
+import { EditNetworkConfig } from "./pages/NetworkConfig/edit-network-config"
+import { CreateNetworkCOnfig } from "./pages/NetworkConfig/createTerminal"
 import { TerminalEdit } from "./pages/Terminal/edit-terminal"
+import { EditPrinterConfig } from "./pages/PrinterConfig/editPrinterConfig"
 
 const API_URL = `${process.env.REACT_APP_API}/v1/graphql`
 
@@ -27,7 +27,7 @@ const client = new GraphQLClient(API_URL, {
 
 const gqlDataProvider = dataProvider(client)
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <Refine
       routerProvider={routerProvider}
@@ -62,5 +62,3 @@ const App: React.FC = () => {
     />
   )
 }
-
-export default App
