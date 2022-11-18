@@ -1,6 +1,6 @@
 import React from "react"
 import { SearchOutlined } from "@ant-design/icons"
-import { Box, Stack, Text } from "@chakra-ui/react"
+import { Box, Spacer, Stack, Text } from "@chakra-ui/react"
 import {
   Button,
   Card,
@@ -17,7 +17,7 @@ import {
 } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/terminal-list-CardView"
-import { FaListUl, FaTh } from "react-icons/fa"
+import { FaFilter, FaListUl, FaTh } from "react-icons/fa"
 import { IFilterVariables, ITerminal } from "../../interfaces"
 import { ListTerminals } from "../../pages/Terminal/terminal-list-TableView"
 import {
@@ -155,15 +155,14 @@ export const TerminalPage = () => {
               suffix={<SearchOutlined />}
             />
           </Form.Item>
+          <Spacer />
           <Dropdown
             overlay={
               <Filter formProps={searchFormProps} filters={filters || []} />
             }
             trigger={["click"]}
           >
-            <div className="rounded-md border-gray-300 m-auto h-8 w-64 flex items-center pl-2 bg-white border-2">
-              Filters
-            </div>
+            <FaFilter size={"20px"} style={{ cursor: "pointer" }} />
           </Dropdown>
         </div>
       </div>
@@ -193,12 +192,7 @@ const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
 ) => {
   const t = useTranslate()
   const { formProps, filters } = props
-  const { selectProps: statusSelectProps } = useSelect<ITerminal>({
-    resource: "HecOne_Terminal.status",
-    optionLabel: "text",
-    optionValue: "text",
-    defaultValue: getDefaultFilter("status", filters),
-  })
+
   return (
     <Card>
       <Form
@@ -218,11 +212,12 @@ const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
           <Box>
             <Form.Item label={"Status"} name="status">
               <Select
-                {...statusSelectProps}
+                options={[
+                  { label: "Active", value: "Active" },
+                  { label: "In-Active", value: "In-Active" },
+                ]}
                 allowClear
-                mode="multiple"
-                placeholder={t("status")}
-                // allowClear options={[]}
+                placeholder={"Status"}
               />
             </Form.Item>
           </Box>
