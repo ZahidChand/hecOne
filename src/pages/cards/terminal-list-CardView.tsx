@@ -17,7 +17,6 @@ import {
 import { ITerminal } from "../../interfaces"
 import { Center, Grid, GridItem, Text } from "@chakra-ui/react"
 import { EyeTwoTone, FormOutlined } from "@ant-design/icons"
-import { CrudFilters, CrudSorting } from "@pankod/refine-core"
 
 export const CardListView: React.FC<{
   formProps: FormProps

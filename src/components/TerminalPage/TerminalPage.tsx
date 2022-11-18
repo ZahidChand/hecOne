@@ -222,11 +222,6 @@ const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
             </Form.Item>
           </Box>
           <Box>
-            <Form.Item label={"City"} name="city">
-              <Select allowClear options={[]} />
-            </Form.Item>
-          </Box>
-          <Box>
             <Form.Item>
               <Button
                 style={{ width: "100%" }}
