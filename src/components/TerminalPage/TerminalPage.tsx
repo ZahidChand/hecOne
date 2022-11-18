@@ -9,17 +9,17 @@ import {
   FormProps,
   Icons,
   Input,
+  ListProps,
   Select,
   useSelect,
   useSimpleList,
   useTable,
 } from "@pankod/refine-antd"
 import { useState } from "react"
-import { CardListView } from "../../pages/cards/list"
-import { FilterTerminal } from "../Filter/filter-terminal"
+import { CardListView } from "../../pages/cards/terminal-list-CardView"
 import { FaListUl, FaTh } from "react-icons/fa"
 import { IFilterVariables, ITerminal } from "../../interfaces"
-import { ListTerminals } from "../../pages/Terminal/list-terminals"
+import { ListTerminals } from "../../pages/Terminal/terminal-list-TableView"
 import {
   CrudFilters,
   getDefaultFilter,
@@ -172,12 +172,16 @@ export const TerminalPage = () => {
         {!gridView ? (
           <ListTerminals
             formProps={searchFormProps}
-            filters={filters || []}
+            // filters={filters || []}
             tableProps={tableProps}
             sorter={sorter}
           />
         ) : (
-          <CardListView listProps={listProps} />
+          <CardListView
+            formProps={searchFormProps}
+            // filters={filters || []}
+            listProps={tableProps as ListProps<ITerminal>}
+          />
         )}
       </div>
     </Form>

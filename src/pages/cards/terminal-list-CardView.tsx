@@ -12,14 +12,17 @@ import {
   Menu,
   Icons,
   ListProps,
+  FormProps,
 } from "@pankod/refine-antd"
 import { ITerminal } from "../../interfaces"
 import { Center, Grid, GridItem, Text } from "@chakra-ui/react"
 import { EyeTwoTone, FormOutlined } from "@ant-design/icons"
+import { CrudFilters, CrudSorting } from "@pankod/refine-core"
 
-export const CardListView: React.FC<{ listProps: ListProps<ITerminal> }> = ({
-  listProps,
-}) => {
+export const CardListView: React.FC<{
+  formProps: FormProps
+  listProps: ListProps<ITerminal>
+}> = ({ listProps }) => {
   const { show, edit } = useNavigation()
 
   return (
@@ -72,7 +75,9 @@ export const CardListView: React.FC<{ listProps: ListProps<ITerminal> }> = ({
                           marginLeft: "23px",
                         }}
                       >
-                        <Text fontWeight={"bold"}>{terminal?.name}</Text>
+                        <Text key="name" fontWeight={"bold"}>
+                          {terminal?.name}
+                        </Text>
 
                         <Text fontWeight={"sm"}>
                           <b>Station : </b>

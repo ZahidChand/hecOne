@@ -30,10 +30,9 @@ export interface INetworkConfig {
   terminalid: string
 }
 
-
 export interface IFilterVariables {
-    name?: string;
-    // store?: string;
-    // user?: string;
-    status?: string[];
+  name?: string
+  // store?: string;
+  // user?: string;
+  status?: string[]
 }

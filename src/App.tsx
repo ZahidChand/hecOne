@@ -11,7 +11,6 @@ import "@pankod/refine-antd/dist/styles.min.css"
 import { Title } from "./components/Title"
 import { TerminalPage } from "./components/TerminalPage/TerminalPage"
 import { TerminalDetails } from "./pages/Terminal/show"
-import { FilterTerminal } from "./components/Filter/filter-terminal"
 import { EditNetworkConfig } from "./pages/NetworkConfig/edit-network-config"
 import { CreateNetworkCOnfig } from "./pages/NetworkConfig/createTerminal"
 import { TerminalEdit } from "./pages/Terminal/edit-terminal"
@@ -39,11 +38,8 @@ export const App: React.FC = () => {
           list: TerminalPage,
           show: TerminalDetails,
           edit: TerminalEdit,
+          options: { label: "Terminals" },
         },
-        // {
-        //   name: "HecOne_Terminal",
-        //   list: FilterTerminal,
-        // },
         {
           name: "HecOne_PrinterConfig",
           edit: EditPrinterConfig,

@@ -14,11 +14,10 @@ import {
 } from "@pankod/refine-antd"
 
 import { ITerminal } from "../../interfaces"
-import { CrudFilters, CrudSorting } from "@pankod/refine-core"
+import { CrudSorting } from "@pankod/refine-core"
 
 export const ListTerminals: React.FC<{
   formProps: FormProps
-  filters: CrudFilters
   tableProps: TableProps<ITerminal>
   sorter: CrudSorting | undefined
 }> = ({ tableProps, sorter }) => {
@@ -60,40 +59,6 @@ export const ListTerminals: React.FC<{
           defaultSortOrder={getDefaultSortOrder("terminalAddress", sorter)}
         />
 
-        {/* <Table.Column
-          dataIndex="terminal_street"
-          title="Street"
-          sorter={{ multiple: 2 }}
-          defaultSortOrder={getDefaultSortOrder("terminal_street", sorter)}
-          filterDropdown={(props) => (
-            <FilterDropdown {...props}>
-              <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
-              />
-            </FilterDropdown>
-          )}
-        /> */}
-
-        {/* <Table.Column
-          dataIndex="terminal_city"
-          title="City"
-          sorter={{ multiple: 2 }}
-          defaultSortOrder={getDefaultSortOrder("terminal_city", sorter)}
-          filterDropdown={(props) => (
-            <FilterDropdown {...props}>
-              <Select
-                style={{ minWidth: 200 }}
-                mode="multiple"
-                placeholder="Select Category"
-                // {...SelectProps}
-              />
-            </FilterDropdown>
-          )}
-        /> */}
-
         <Table.Column
           dataIndex="terminal_state"
           title="State"
@@ -119,14 +84,6 @@ export const ListTerminals: React.FC<{
             </FilterDropdown>
           )}
         />
-
-        {/* <Table.Column
-          dataIndex="created_at"
-          title="Created At"
-          render={(value) => <DateField value={value} format="LLL" />}
-          defaultSortOrder={getDefaultSortOrder("created_at", sorter)}
-          sorter={{ multiple: 2 }}
-        /> */}
 
         <Table.Column<ITerminal>
           title="Actions"
