@@ -10,12 +10,15 @@ import {
   Space,
   Card,
   TableProps,
+  FormProps,
 } from "@pankod/refine-antd"
 
 import { ITerminal } from "../../interfaces"
-import { CrudSorting } from "@pankod/refine-core"
+import { CrudFilters, CrudSorting } from "@pankod/refine-core"
 
 export const ListTerminals: React.FC<{
+  formProps: FormProps
+  filters: CrudFilters
   tableProps: TableProps<ITerminal>
   sorter: CrudSorting | undefined
 }> = ({ tableProps, sorter }) => {
@@ -100,6 +103,7 @@ export const ListTerminals: React.FC<{
 
         <Table.Column
           dataIndex="status"
+          key="status"
           title="Status"
           defaultSortOrder={getDefaultSortOrder("status", sorter)}
           sorter

@@ -17,7 +17,7 @@ import { CreateNetworkCOnfig } from "./pages/NetworkConfig/createTerminal"
 import { TerminalEdit } from "./pages/Terminal/edit-terminal"
 import { EditPrinterConfig } from "./pages/PrinterConfig/editPrinterConfig"
 
-const API_URL = `${process.env.REACT_APP_API}/v1/graphql`
+const API_URL = "http://192.168.0.14:8080/v1/graphql"
 
 const client = new GraphQLClient(API_URL, {
   headers: {
@@ -40,10 +40,10 @@ export const App: React.FC = () => {
           show: TerminalDetails,
           edit: TerminalEdit,
         },
-        {
-          name: "HecOne_Terminal",
-          list: FilterTerminal,
-        },
+        // {
+        //   name: "HecOne_Terminal",
+        //   list: FilterTerminal,
+        // },
         {
           name: "HecOne_PrinterConfig",
           edit: EditPrinterConfig,

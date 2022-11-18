@@ -29,3 +29,11 @@ export interface INetworkConfig {
   created_at: string
   terminalid: string
 }
+
+
+export interface IFilterVariables {
+    name?: string;
+    // store?: string;
+    // user?: string;
+    status?: string[];
+}

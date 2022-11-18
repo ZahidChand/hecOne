@@ -1,10 +1,16 @@
 import React from "react"
 import { SearchOutlined } from "@ant-design/icons"
-import { Text } from "@chakra-ui/react"
+import { Box, Stack, Text } from "@chakra-ui/react"
 import {
+  Button,
+  Card,
   Dropdown,
   Form,
+  FormProps,
+  Icons,
   Input,
+  Select,
+  useSelect,
   useSimpleList,
   useTable,
 } from "@pankod/refine-antd"
@@ -12,8 +18,14 @@ import { useState } from "react"
 import { CardListView } from "../../pages/cards/list"
 import { FilterTerminal } from "../Filter/filter-terminal"
 import { FaListUl, FaTh } from "react-icons/fa"
-import { ITerminal } from "../../interfaces"
+import { IFilterVariables, ITerminal } from "../../interfaces"
 import { ListTerminals } from "../../pages/Terminal/list-terminals"
+import {
+  CrudFilters,
+  getDefaultFilter,
+  HttpError,
+  useTranslate,
+} from "@pankod/refine-core"
 
 export const TerminalPage = () => {
   const [gridView, setGridView] = useState<boolean>(false)
@@ -45,7 +57,11 @@ export const TerminalPage = () => {
     },
     pagination: { pageSize: 12, defaultCurrent: 2 },
   })
-  const { tableProps, sorter } = useTable<ITerminal>({
+  const { tableProps, sorter, searchFormProps, filters } = useTable<
+    ITerminal,
+    HttpError,
+    IFilterVariables
+  >({
     initialSorter: [
       {
         field: "name",
@@ -70,6 +86,24 @@ export const TerminalPage = () => {
         "terminal_state",
         "terminal_zipcode",
       ],
+    },
+    onSearch: (params) => {
+      const filters: CrudFilters = []
+      const { name, status }: any = params
+
+      filters.push({
+        field: "name",
+        operator: "eq",
+        value: name,
+      })
+
+      filters.push({
+        field: "status",
+        operator: "in",
+        value: status,
+      })
+
+      return filters
     },
   })
 
@@ -121,7 +155,12 @@ export const TerminalPage = () => {
               suffix={<SearchOutlined />}
             />
           </Form.Item>
-          <Dropdown overlay={<FilterTerminal />} trigger={["click"]}>
+          <Dropdown
+            overlay={
+              <Filter formProps={searchFormProps} filters={filters || []} />
+            }
+            trigger={["click"]}
+          >
             <div className="rounded-md border-gray-300 m-auto h-8 w-64 flex items-center pl-2 bg-white border-2">
               Filters
             </div>
@@ -131,11 +170,76 @@ export const TerminalPage = () => {
 
       <div>
         {!gridView ? (
-          <ListTerminals tableProps={tableProps} sorter={sorter} />
+          <ListTerminals
+            formProps={searchFormProps}
+            filters={filters || []}
+            tableProps={tableProps}
+            sorter={sorter}
+          />
         ) : (
           <CardListView listProps={listProps} />
         )}
       </div>
     </Form>
+  )
+}
+
+const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
+  props,
+) => {
+  const t = useTranslate()
+  const { formProps, filters } = props
+  const { selectProps: statusSelectProps } = useSelect<ITerminal>({
+    resource: "HecOne_Terminal.status",
+    optionLabel: "text",
+    optionValue: "text",
+    defaultValue: getDefaultFilter("status", filters),
+  })
+  return (
+    <Card>
+      <Form
+        layout="vertical"
+        {...formProps}
+        initialValues={{
+          name: getDefaultFilter("name", filters),
+          status: getDefaultFilter("status", filters, "in"),
+        }}
+      >
+        <Stack>
+          <Box>
+            <Form.Item label={"Name"} name="name">
+              <Input prefix={<Icons.SearchOutlined />} />
+            </Form.Item>
+          </Box>
+          <Box>
+            <Form.Item label={"Status"} name="status">
+              <Select
+                {...statusSelectProps}
+                allowClear
+                mode="multiple"
+                placeholder={t("status")}
+                // allowClear options={[]}
+              />
+            </Form.Item>
+          </Box>
+          <Box>
+            <Form.Item label={"City"} name="city">
+              <Select allowClear options={[]} />
+            </Form.Item>
+          </Box>
+          <Box>
+            <Form.Item>
+              <Button
+                style={{ width: "100%" }}
+                type="primary"
+                htmlType="submit"
+              >
+                {"Submit"}
+              </Button>
+            </Form.Item>
+          </Box>
+        </Stack>
+      </Form>
+    </Card>
   )
 }
