@@ -36,3 +36,12 @@ export interface IFilterVariables {
   // user?: string;
   status?: string[]
 }
+
+export interface IStation {
+  id: id
+  name: string
+  stationAddress: string
+  stationArea: string
+  created_at: string
+  updated_at: string
+}
