@@ -72,7 +72,8 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                   defaultValue={"192.168.0.1"}
                   style={{
                     marginBottom: "15px",
-                    marginLeft: "150px",
+                    marginLeft: "160px",
+                    width: "200px",
                   }}
                 />
               ) : (
@@ -95,7 +96,7 @@ export const EditPrinterConfig: React.FC<IResourceComponentsProps> = () => {
                 <Input
                   defaultValue={"8.5 x 14 inches"}
                   style={{
-                    marginLeft: "87px",
+                    marginLeft: "97px",
                     marginBottom: "15px",
                     width: "130%",
                   }}
