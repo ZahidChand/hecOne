@@ -1,7 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons"
-import { Spacer, Text } from "@chakra-ui/react"
-import { Dropdown, Form, Input, ListProps, useTable } from "@pankod/refine-antd"
-import { CrudFilters, HttpError } from "@pankod/refine-core"
+import { Box, Spacer, Stack, Text } from "@chakra-ui/react"
+import { Button, Card, Dropdown, Form, FormProps, Icons, Input, ListProps, useTable } from "@pankod/refine-antd"
+import { CrudFilters, getDefaultFilter, HttpError } from "@pankod/refine-core"
 import React, { useState } from "react"
 import { FaFilter, FaListUl, FaTh } from "react-icons/fa"
 import { IStation } from "../../interfaces"
@@ -95,8 +95,7 @@ export const StationPage = () => {
             <Spacer />
             <Dropdown
               overlay={
-                // <Filter formProps={searchFormProps} filters={filters || []} />
-                <h1>Filter Part</h1>
+                <Filter formProps={searchFormProps} filters={filters || []} />
               }
               trigger={["click"]}
             >
@@ -122,5 +121,43 @@ export const StationPage = () => {
         </div>
       </Form>
     </>
+  )
+}
+
+const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
+  props,
+) => {
+  const { formProps, filters } = props
+
+  return (
+    <Card>
+      <Form
+        layout="vertical"
+        {...formProps}
+        initialValues={{
+          name: getDefaultFilter("name", filters),
+        }}
+      >
+        <Stack>
+          <Box>
+            <Form.Item label={"Name"} name="name">
+              <Input prefix={<Icons.SearchOutlined />} />
+            </Form.Item>
+          </Box>
+
+          <Box>
+            <Form.Item>
+              <Button
+                style={{ width: "100%" }}
+                type="primary"
+                htmlType="submit"
+              >
+                {"Submit"}
+              </Button>
+            </Form.Item>
+          </Box>
+        </Stack>
+      </Form>
+    </Card>
   )
 }

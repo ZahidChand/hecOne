@@ -7,6 +7,7 @@ import {
   Table,
   FormProps,
   TableProps,
+  getDefaultSortOrder,
 } from "@pankod/refine-antd"
 import { CrudSorting } from "@pankod/refine-core"
 import React from "react"
@@ -25,20 +26,20 @@ export const StationListView: React.FC<{
             dataIndex="name"
             title="Name"
             sorter={{ multiple: 2 }}
-            // defaultSortOrder={getDefaultSortOrder("Name", sorter)}
+            defaultSortOrder={getDefaultSortOrder("Name", sorter)}
           />
 
           <Table.Column
             dataIndex="stationAddress"
             title="Address"
             sorter={{ multiple: 2 }}
-            // defaultSortOrder={getDefaultSortOrder("station", sorter)}
+            defaultSortOrder={getDefaultSortOrder("stationAddress", sorter)}
           />
 
           <Table.Column
             dataIndex="stationArea"
             title="Area"
-            // defaultSortOrder={getDefaultSortOrder("device_id", sorter)}
+            defaultSortOrder={getDefaultSortOrder("stationArea", sorter)}
             sorter
           />
 
