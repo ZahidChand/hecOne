@@ -51,7 +51,13 @@ export const StationPage = () => {
   })
   return (
     <>
-      <Form>
+      <Form
+        {...searchFormProps}
+        initialValues={{
+          name: getDefaultFilter("name", filters),
+          status: getDefaultFilter("stationStatus", filters, "in"),
+        }}
+      >
         <div
           style={{
             display: "flex",
@@ -89,14 +95,13 @@ export const StationPage = () => {
             </div>
             <Form.Item name="name" noStyle>
               <Input
-                autoComplete="false"
                 style={{
                   margin: "0 5px",
                   height: "30px",
                   width: "300px",
                 }}
                 placeholder={" Search Station"}
-                suffix={<SearchOutlined />}
+                prefix={<Icons.SearchOutlined />}
               />
             </Form.Item>
             <Spacer />
@@ -143,6 +148,7 @@ const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
         {...formProps}
         initialValues={{
           name: getDefaultFilter("name", filters),
+          status: getDefaultFilter("stationStatus", filters, "in"),
         }}
       >
         <Stack>

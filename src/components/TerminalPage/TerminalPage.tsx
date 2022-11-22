@@ -108,7 +108,13 @@ export const TerminalPage = () => {
   })
 
   return (
-    <Form>
+    <Form
+      {...searchFormProps}
+      initialValues={{
+        name: getDefaultFilter("name", filters),
+        status: getDefaultFilter("stationStatus", filters, "in"),
+      }}
+    >
       <div
         style={{
           display: "flex",
