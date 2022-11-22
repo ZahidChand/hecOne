@@ -16,8 +16,9 @@ import { CreateNetworkCOnfig } from "./pages/NetworkConfig/createTerminal"
 import { TerminalEdit } from "./pages/Terminal/edit-terminal"
 import { EditPrinterConfig } from "./pages/PrinterConfig/editPrinterConfig"
 import { StationPage } from "./pages/Station/stationPage"
+import { StationIcon, TerminalIcon } from "./components/icons"
 
-const API_URL = "http://localhost:8080/v1/graphql"
+const API_URL = "http://192.168.0.14:8080/v1/graphql"
 
 const client = new GraphQLClient(API_URL, {
   headers: {
@@ -39,11 +40,13 @@ export const App: React.FC = () => {
           list: TerminalPage,
           show: TerminalDetails,
           edit: TerminalEdit,
+          icon: <TerminalIcon />,
           options: { label: "Terminals" },
         },
         {
           name: "HecOne_Station",
           list: StationPage,
+          icon: <StationIcon style={{ right: "10px" }} />,
           options: { label: "Stations" },
         },
         {
