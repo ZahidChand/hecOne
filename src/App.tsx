@@ -46,7 +46,7 @@ export const App: React.FC = () => {
         {
           name: "HecOne_Station",
           list: StationPage,
-          icon: <StationIcon style={{ right: "10px" }} />,
+          icon: <StationIcon />,
           options: { label: "Stations" },
         },
         {

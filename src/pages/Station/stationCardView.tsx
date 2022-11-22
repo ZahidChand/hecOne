@@ -9,7 +9,7 @@ import {
 } from "@pankod/refine-antd"
 import React from "react"
 import { IStation } from "../../interfaces"
-import stationImage from "../../Images/GasStationImg2.png"
+import stationImage from "../../Images/location-2952.png"
 
 export const StationCardView: React.FC<{
   formProps: FormProps
@@ -47,8 +47,8 @@ export const StationCardView: React.FC<{
                         // }}
                         >
                           <Avatar
-                            style={{ cursor: "pointer" }}
-                            size={120}
+                            style={{ cursor: "pointer", marginTop: "40px" }}
+                            size={60}
                             src={stationImage}
                             alt={terminal.name}
                           />

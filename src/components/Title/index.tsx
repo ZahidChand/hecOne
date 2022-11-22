@@ -2,6 +2,8 @@ import React from "react"
 import { useRouterContext } from "@pankod/refine-core"
 import { Box } from "@pankod/refine-mui"
 import "./style.less"
+import hecImage from "../../Images/download.png"
+import titleImage from "../../Images/hectronic.png"
 
 type TitleProps = {
   collapsed: boolean
@@ -21,14 +23,14 @@ export const Title: React.FC<TitleProps> = ({ collapsed }) => {
       >
         {collapsed ? (
           <img
-            style={{ height: "70px", width: "60px" }}
-            src="https://cityline.hectronic.com:49744/baygui/images/hectronic.png"
+            style={{ height: "40px", width: "35px", backgroundColor: "red" }}
+            src={hecImage}
             alt="hecone"
           />
         ) : (
           <img
             style={{ height: "70px", width: "180px" }}
-            src="https://cityline.hectronic.com:49744/baygui/images/hectronic.png"
+            src={titleImage}
             alt="hecone"
           />
         )}

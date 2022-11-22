@@ -17,6 +17,7 @@ import {
 import { ITerminal } from "../../interfaces"
 import { Center, Grid, GridItem, Text } from "@chakra-ui/react"
 import { EyeTwoTone, FormOutlined } from "@ant-design/icons"
+import terminalImage from "../../Images/terminalImage.png"
 
 export const CardListView: React.FC<{
   formProps: FormProps
@@ -57,10 +58,8 @@ export const CardListView: React.FC<{
                         >
                           <Avatar
                             style={{ cursor: "pointer" }}
-                            size={120}
-                            src={
-                              "https://previews.123rf.com/images/olkita/olkita1812/olkita181200061/116085498-black-isolated-outline-icon-of-fuel-pump-on-white-background-line-icon-of-fuel-station.jpg"
-                            }
+                            size={108}
+                            src={terminalImage}
                             alt={terminal.name}
                           />
                         </Center>
