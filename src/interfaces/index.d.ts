@@ -44,4 +44,5 @@ export interface IStation {
   stationArea: string
   created_at: string
   updated_at: string
+  stationStatus: string
 }

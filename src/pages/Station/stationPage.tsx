@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons"
 import { Box, Spacer, Stack, Text } from "@chakra-ui/react"
-import { Button, Card, Dropdown, Form, FormProps, Icons, Input, ListProps, useTable } from "@pankod/refine-antd"
+import { Button, Card, Dropdown, Form, FormProps, Icons, Input, ListProps, Select, useTable } from "@pankod/refine-antd"
 import { CrudFilters, getDefaultFilter, HttpError } from "@pankod/refine-core"
 import React, { useState } from "react"
 import { FaFilter, FaListUl, FaTh } from "react-icons/fa"
@@ -21,11 +21,18 @@ export const StationPage = () => {
       },
     ],
     metaData: {
-      fields: ["id", "name", "created_at", "stationAddress", "stationArea"],
+      fields: [
+        "id",
+        "name",
+        "created_at",
+        "stationAddress",
+        "stationArea",
+        "stationStatus"
+      ],
     },
     onSearch: (params) => {
       const filters: CrudFilters = []
-      const { name, status }: any = params
+      const { name, stationStatus }: any = params
 
       filters.push({
         field: "name",
@@ -34,9 +41,9 @@ export const StationPage = () => {
       })
 
       filters.push({
-        field: "status",
+        field: "stationStatus",
         operator: "in",
-        value: status,
+        value: stationStatus,
       })
 
       return filters
@@ -144,7 +151,18 @@ const Filter: React.FC<{ formProps: FormProps; filters: CrudFilters }> = (
               <Input prefix={<Icons.SearchOutlined />} />
             </Form.Item>
           </Box>
-
+          <Box>
+            <Form.Item label={"Status"} name="stationStatus">
+              <Select
+                options={[
+                  { label: "Active", value: "Active" },
+                  { label: "In-Active", value: "In-Active" },
+                ]}
+                allowClear
+                placeholder={"Status"}
+              />
+            </Form.Item>
+          </Box>
           <Box>
             <Form.Item>
               <Button

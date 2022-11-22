@@ -8,6 +8,8 @@ import {
   FormProps,
   TableProps,
   getDefaultSortOrder,
+  FilterDropdown,
+  Select,
 } from "@pankod/refine-antd"
 import { CrudSorting } from "@pankod/refine-core"
 import React from "react"
@@ -43,6 +45,25 @@ export const StationListView: React.FC<{
             sorter
           />
 
+          <Table.Column
+            dataIndex="stationStatus"
+            key="stationStatus"
+            title="Status"
+            defaultSortOrder={getDefaultSortOrder("stationStatus", sorter)}
+            sorter
+            filterDropdown={(props) => (
+              <FilterDropdown {...props}>
+                <Select
+                  placeholder="Select Status"
+                  options={[
+                    { label: "Active", value: "Active" },
+                    { label: "In-Active", value: "In-Active" },
+                  ]}
+                />
+              </FilterDropdown>
+            )}
+          />
+
           <Table.Column<IStation>
             title="Actions"
             dataIndex="actions"
@@ -64,6 +85,7 @@ export const StationListView: React.FC<{
                       "stationArea",
                       "created_at",
                       "updated_at",
+                      "stationStatus"
                     ],
                   }}
                 />
