@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { SearchOutlined } from "@ant-design/icons"
 import { Box, Spacer, Stack, Text } from "@chakra-ui/react"
 import {
@@ -17,7 +17,7 @@ import {
 } from "@pankod/refine-antd"
 import { useState } from "react"
 import { CardListView } from "../../pages/cards/terminal-list-CardView"
-import { FaFilter, FaListUl, FaTh } from "react-icons/fa"
+import { FaFilter, FaListUl, FaMap, FaMapPin, FaTh } from "react-icons/fa"
 import { IFilterVariables, ITerminal } from "../../interfaces"
 import { ListTerminals } from "../../pages/Terminal/terminal-list-TableView"
 import {
@@ -26,6 +26,7 @@ import {
   HttpError,
   useTranslate,
 } from "@pankod/refine-core"
+import MapView from "../../pages/Terminal/mapView"
 
 export const TerminalPage = () => {
   const [gridView, setGridView] = useState<boolean>(false)
@@ -106,7 +107,53 @@ export const TerminalPage = () => {
       return filters
     },
   })
+  // useEffect(() => {
+  //   setElementToDisplay(
+  //     <ListTerminals
+  //       formProps={searchFormProps}
+  //       // filters={filters || []}
+  //       tableProps={tableProps}
+  //       sorter={sorter}
+  //     />
+  //   )
+  // }, []);
 
+
+  const [elementToDisplay, setElementToDisplay] = useState<any>(
+    <ListTerminals
+      formProps={searchFormProps}
+      // filters={filters || []}
+      tableProps={tableProps}
+      sorter={sorter}
+    />
+
+
+  );
+
+  const showA = () => {
+    setElementToDisplay(
+      <ListTerminals
+        formProps={searchFormProps}
+        // filters={filters || []}
+        tableProps={tableProps}
+        sorter={sorter}
+      />
+    )
+  }
+  const showB = () => {
+    setElementToDisplay(
+      <CardListView
+        formProps={searchFormProps}
+        // filters={filters || []}
+        listProps={tableProps as ListProps<ITerminal>}
+      />
+    )
+  }
+  const showC = () => {
+    setElementToDisplay(
+      <MapView />
+    )
+  }
   return (
     <Form
       {...searchFormProps}
@@ -129,19 +176,21 @@ export const TerminalPage = () => {
           <div style={{ display: "flex" }}>
             <div
               style={{
-                backgroundColor: !gridView ? "white" : "transparent",
+                backgroundColor: !elementToDisplay ? "white" : "transparent",
                 padding: "5px 10px",
                 borderRadius: "5px",
                 cursor: "pointer",
               }}
-              onClick={() => setGridView(false)}
+              // onClick={() => setGridView(false)}
+              onClick={showA}
             >
               <FaListUl />
             </div>
             <div
-              onClick={() => setGridView(true)}
+              // onClick={() => setGridView(true)}
+              onClick={showB}
               style={{
-                backgroundColor: gridView ? "white" : "transparent",
+                backgroundColor: elementToDisplay ? "white" : "transparent",
                 padding: "5px 10px",
                 borderRadius: "5px",
                 cursor: "pointer",
@@ -149,7 +198,26 @@ export const TerminalPage = () => {
             >
               <FaTh />
             </div>
+            <div
+              // onClick={() => setGridView(false)}
+              onClick={showC}
+              style={{
+                backgroundColor: elementToDisplay ? "white" : "transparent",
+                padding: "5px 10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              <FaMapPin />
+            </div>
           </div>
+          {/* <button onClick={showA}>A</button>
+          <button onClick={showB}>B</button>
+          <button onClick={showC}>C</button> */}
+
+          {/* <div className="App">
+            {elementToDisplay}
+          </div> */}
           <Form.Item name="name" noStyle>
             <Input
               style={{
@@ -174,7 +242,7 @@ export const TerminalPage = () => {
       </div>
 
       <div>
-        {!gridView ? (
+        {/* {!gridView ? (
           <ListTerminals
             formProps={searchFormProps}
             // filters={filters || []}
@@ -187,7 +255,10 @@ export const TerminalPage = () => {
             // filters={filters || []}
             listProps={tableProps as ListProps<ITerminal>}
           />
-        )}
+        )} */}
+        <div className="App">
+          {elementToDisplay}
+        </div>
       </div>
     </Form>
   )

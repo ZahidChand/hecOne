@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@types/google.maps": "^3.50.4",
     "@ant-design/icons": "^4.7.0",
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11",
@@ -33,7 +35,8 @@
     "react-mde": "^11.5.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "google-map-react": "^2.1.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -71,7 +74,6 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.10",
-    "postcss": "^8.4.19",
-    "tailwindcss": "^3.2.4"
+    "postcss": "^8.4.19"
   }
 }
