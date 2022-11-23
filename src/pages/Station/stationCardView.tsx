@@ -67,7 +67,7 @@ export const StationCardView: React.FC<{
                           {terminal?.name}
                         </Text>
 
-                        <Text fontWeight={"sm"}>
+                        <Text fontWeight={"sm"} height={80}>
                           <b>Address : </b>
                           {terminal?.stationAddress}
                         </Text>

@@ -8,8 +8,8 @@ function MapView() {
       <div style={{ height: "500px", width: "100%" }}>
         <Map
           center={{
-            lat: 40.73061,
-            lng: -73.935242,
+            lat: 18.516726,
+            lng: 73.856255,
           }}
           zoom={9}
         >
@@ -19,8 +19,58 @@ function MapView() {
             //   url: markerLocation,
             // }}
             position={{
-              lat: 30.04442,
-              lng: 31.235712,
+              lat: 18.516726,
+              lng: 73.856255,
+            }}
+          />
+          <MapMarker
+            // key={`user-marker-${record?.user.id}`}
+            // icon={{
+            //   url: markerLocation,
+            // }}
+            position={{
+              lat: 19.076090,
+              lng: 72.877426,
+            }}
+          />
+          <MapMarker
+            // key={`user-marker-${record?.user.id}`}
+            // icon={{
+            //   url: markerLocation,
+            // }}
+            position={{
+              lat: 21.146633,
+              lng: 79.088860,
+            }}
+          />
+          <MapMarker
+            // key={`user-marker-${record?.user.id}`}
+            // icon={{
+            //   url: markerLocation,
+            // }}
+            position={{
+              lat: 19.997454,
+              lng: 73.789803,
+            }}
+          />
+          <MapMarker
+            // key={`user-marker-${record?.user.id}`}
+            // icon={{
+            //   url: markerLocation,
+            // }}
+            position={{
+              lat: 17.659920,
+              lng: 75.906387,
+            }}
+          />
+          <MapMarker
+            // key={`user-marker-${record?.user.id}`}
+            // icon={{
+            //   url: markerLocation,
+            // }}
+            position={{
+              lat: 19.901054,
+              lng: 75.352478,
             }}
           />
         </Map>

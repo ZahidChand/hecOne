@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { SearchOutlined } from "@ant-design/icons"
-import { Box, Spacer, Stack, Text } from "@chakra-ui/react"
+import { Box, Link, Spacer, Stack, Text } from "@chakra-ui/react"
 import {
   Button,
   Card,
@@ -26,7 +26,6 @@ import {
   HttpError,
   useTranslate,
 } from "@pankod/refine-core"
-import MapView from "../../pages/Terminal/mapView"
 
 export const TerminalPage = () => {
   const [gridView, setGridView] = useState<boolean>(false)
@@ -107,53 +106,8 @@ export const TerminalPage = () => {
       return filters
     },
   })
-  // useEffect(() => {
-  //   setElementToDisplay(
-  //     <ListTerminals
-  //       formProps={searchFormProps}
-  //       // filters={filters || []}
-  //       tableProps={tableProps}
-  //       sorter={sorter}
-  //     />
-  //   )
-  // }, []);
 
 
-  const [elementToDisplay, setElementToDisplay] = useState<any>(
-    <ListTerminals
-      formProps={searchFormProps}
-      // filters={filters || []}
-      tableProps={tableProps}
-      sorter={sorter}
-    />
-
-
-  );
-
-  const showListView = () => {
-    setElementToDisplay(
-      <ListTerminals
-        formProps={searchFormProps}
-        // filters={filters || []}
-        tableProps={tableProps}
-        sorter={sorter}
-      />
-    )
-  }
-  const showGridView = () => {
-    setElementToDisplay(
-      <CardListView
-        formProps={searchFormProps}
-        // filters={filters || []}
-        listProps={tableProps as ListProps<ITerminal>}
-      />
-    )
-  }
-  const showMapView = () => {
-    setElementToDisplay(
-      <MapView />
-    )
-  }
   return (
     <Form
       {...searchFormProps}
@@ -176,39 +130,47 @@ export const TerminalPage = () => {
           <div style={{ display: "flex" }}>
             <div
               style={{
-                backgroundColor: !elementToDisplay ? "white" : "transparent",
+                backgroundColor: !gridView ? "white" : "transparent",
                 padding: "5px 10px",
                 borderRadius: "5px",
                 cursor: "pointer",
               }}
-              // onClick={() => setGridView(false)}
-              onClick={showListView}
+              onClick={() => setGridView(false)}
+            // onClick={showListView}
+            // onClick={() => {
+            //   setElementToDisplay(
+            //     <ListTerminals
+            //       formProps={searchFormProps}
+            //       // filters={filters || []}
+            //       tableProps={tableProps}
+            //       sorter={sorter}
+            //     />
+            //   )
+            // }}
             >
               <FaListUl />
             </div>
             <div
-              // onClick={() => setGridView(true)}
-              onClick={showGridView}
+              onClick={() => setGridView(true)}
+              // onClick={showGridView}
+
               style={{
-                backgroundColor: elementToDisplay ? "white" : "transparent",
+                backgroundColor: gridView ? "white" : "transparent",
                 padding: "5px 10px",
                 borderRadius: "5px",
                 cursor: "pointer",
               }}
+            // onClick={() => {
+            //   setElementToDisplay(
+            //     <CardListView
+            //       formProps={searchFormProps}
+            //       // filters={filters || []}
+            //       listProps={tableProps as ListProps<ITerminal>
+            //       } />
+            //   )
+            // }}
             >
               <FaTh />
-            </div>
-            <div
-              // onClick={() => setGridView(false)}
-              onClick={showMapView}
-              style={{
-                backgroundColor: elementToDisplay ? "white" : "transparent",
-                padding: "5px 10px",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              <FaMapPin />
             </div>
           </div>
 
@@ -236,7 +198,7 @@ export const TerminalPage = () => {
       </div>
 
       <div>
-        {/* {!gridView ? (
+        {!gridView ? (
           <ListTerminals
             formProps={searchFormProps}
             // filters={filters || []}
@@ -249,12 +211,9 @@ export const TerminalPage = () => {
             // filters={filters || []}
             listProps={tableProps as ListProps<ITerminal>}
           />
-        )} */}
-        <div className="App">
-          {elementToDisplay}
-        </div>
+        )}
       </div>
-    </Form>
+    </Form >
   )
 }
 
