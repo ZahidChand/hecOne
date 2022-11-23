@@ -2,7 +2,6 @@ import { TableContainer } from "@chakra-ui/react"
 import { Avatar, Card, Icons, Tabs, Typography } from "@pankod/refine-antd"
 import React from "react"
 import { DetailsBreadcrumb } from "../../components/Breadcrumb/breadcrumb"
-import { Map, MapMarker } from "../../components/map"
 import { EditNetworkConfig } from "../NetworkConfig/edit-network-config"
 import { EditPrinterConfig } from "../PrinterConfig/editPrinterConfig"
 // import { markerImg } from "../../images/marker-location.svg"
@@ -97,26 +96,6 @@ export const TerminalDetails: React.FC = () => {
           </div>
         </div>
       </Card>
-      <div style={{ height: "500px", width: "100%" }}>
-        <Map
-          center={{
-            lat: 40.73061,
-            lng: -73.935242,
-          }}
-          zoom={9}
-        >
-          <MapMarker
-            // key={`user-marker-${record?.user.id}`}
-            icon={{
-              url: "../../images/marker-location",
-            }}
-            position={{
-              lat: 30.04442,
-              lng: 31.235712,
-            }}
-          />
-        </Map>
-      </div>
     </>
   )
 }

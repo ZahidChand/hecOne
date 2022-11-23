@@ -130,7 +130,7 @@ export const TerminalPage = () => {
 
   );
 
-  const showA = () => {
+  const showListView = () => {
     setElementToDisplay(
       <ListTerminals
         formProps={searchFormProps}
@@ -140,7 +140,7 @@ export const TerminalPage = () => {
       />
     )
   }
-  const showB = () => {
+  const showGridView = () => {
     setElementToDisplay(
       <CardListView
         formProps={searchFormProps}
@@ -149,7 +149,7 @@ export const TerminalPage = () => {
       />
     )
   }
-  const showC = () => {
+  const showMapView = () => {
     setElementToDisplay(
       <MapView />
     )
@@ -182,13 +182,13 @@ export const TerminalPage = () => {
                 cursor: "pointer",
               }}
               // onClick={() => setGridView(false)}
-              onClick={showA}
+              onClick={showListView}
             >
               <FaListUl />
             </div>
             <div
               // onClick={() => setGridView(true)}
-              onClick={showB}
+              onClick={showGridView}
               style={{
                 backgroundColor: elementToDisplay ? "white" : "transparent",
                 padding: "5px 10px",
@@ -200,7 +200,7 @@ export const TerminalPage = () => {
             </div>
             <div
               // onClick={() => setGridView(false)}
-              onClick={showC}
+              onClick={showMapView}
               style={{
                 backgroundColor: elementToDisplay ? "white" : "transparent",
                 padding: "5px 10px",
@@ -211,13 +211,7 @@ export const TerminalPage = () => {
               <FaMapPin />
             </div>
           </div>
-          {/* <button onClick={showA}>A</button>
-          <button onClick={showB}>B</button>
-          <button onClick={showC}>C</button> */}
 
-          {/* <div className="App">
-            {elementToDisplay}
-          </div> */}
           <Form.Item name="name" noStyle>
             <Input
               style={{
