@@ -17,6 +17,7 @@ import { TerminalEdit } from "./pages/Terminal/edit-terminal"
 import { EditPrinterConfig } from "./pages/PrinterConfig/editPrinterConfig"
 import { StationPage } from "./pages/Station/stationPage"
 import { StationIcon, TerminalIcon } from "./components/icons"
+import { ModalFooter } from "@chakra-ui/react"
 
 const API_URL = "http://localhost:8080/v1/graphql"
 
@@ -34,6 +35,7 @@ export const App: React.FC = () => {
       routerProvider={routerProvider}
       dataProvider={gqlDataProvider}
       Title={Title}
+      reactQueryDevtoolConfig={false}
       resources={[
         {
           name: "HecOne_Terminal",

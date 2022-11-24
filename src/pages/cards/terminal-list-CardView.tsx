@@ -147,6 +147,7 @@ export const CardListView: React.FC<{
                                 <DeleteButton
                                   recordItemId={terminal.id}
                                   style={{ border: "0px" }}
+                                  confirmTitle="Are you sure you want to delete?"
                                   confirmOkText="Yes"
                                   confirmCancelText="No"
                                   title="Delete"

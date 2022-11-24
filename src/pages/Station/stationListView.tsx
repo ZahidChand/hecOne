@@ -73,6 +73,7 @@ export const StationListView: React.FC<{
                 <ShowButton hideText size="small" recordItemId={record.id} />
                 <DeleteButton
                   confirmOkText="Yes"
+                  confirmTitle="Are you sure you want to delete?"
                   confirmCancelText="No"
                   hideText
                   size="small"
